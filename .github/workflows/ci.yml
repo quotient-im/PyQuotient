@@ -45,10 +45,17 @@ jobs:
         curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py > poetry.py
         python3 poetry.py --version 1.2.0a1
         echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+        # is needed for macos to make poetry available
+        export PATH="/Users/runner/.local/bin:$PATH
+
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         git clone https://github.com/quotient-im/libQuotient.git
-
+    
+    - name: Install Clang(ubuntu)
+      if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      run: |
         # install libclang 12
         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
         sudo apt-get install clang-12 clang-tools-12 libclang-12-dev
