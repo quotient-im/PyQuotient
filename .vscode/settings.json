@@ -1,0 +1,25 @@
+{
+  "files.associations": {
+    "functional": "cpp",
+    "array": "cpp",
+    "cwchar": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "new": "cpp",
+    "ostream": "cpp",
+    "sstream": "cpp",
+    "stdexcept": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "string": "cpp",
+    "qdir": "cpp"
+  }
+}

@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  CI:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        os: [ubuntu-18.04, macos-10.15]
+        compiler: [ GCC, Clang ]
+        exclude:
+        - os: macos-10.15
+          compiler: GCC
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+        poetry install
+    
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v2
+      with:
+        path: ${{ runner.workspace }}/Qt
+        key: ${{ runner.os }}-QtCache
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2.11.1
+      with:
+        version: '6.1.0'
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+    
+    - name: Build
+      run: |
+        bash ./build.sh
+    
+    - name: Run unit tests
+      run: |
+        pytest

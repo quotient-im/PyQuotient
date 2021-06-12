@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pyquotient"
+version = "0.1.0"
+description = ""
+authors = ["Vladyslav Hnatiuk <aders1234@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.8.10"
+shiboken6 = "^6.1.1"
+PySide6 = "^6.1.1"
+shiboken6-generator = "^6.1.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[[tool.poetry.source]]
+name = "qt"
+url = "http://download.qt.io/official_releases/QtForPython/"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

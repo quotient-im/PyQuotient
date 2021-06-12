@@ -1,0 +1,4 @@
+[generator-project]
+output-directory location="OUTPUTDIR" />
+enable-parent-ctor-heuristic
+enable-return-value-heuristic
