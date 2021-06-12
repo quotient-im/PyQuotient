@@ -56,9 +56,9 @@ jobs:
     - name: Install Clang(ubuntu)
       if: ${{ startsWith(matrix.os, 'ubuntu') }}
       run: |
-        # install libclang 12
-        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-        sudo apt-get install clang-12 clang-tools-12 libclang-12-dev
+        wget https://apt.llvm.org/llvm.sh
+        chmod +x llvm.sh
+        sudo ./llvm.sh 12
     
     - name: Build
       run: |
