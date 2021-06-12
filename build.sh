@@ -26,6 +26,6 @@ fi
 
 $SHIBOKEN_COMMAND  $SHIBOKEN_INCLUDE_ARG \
     --project-file=pyside_typesystem/project.in \
-    --typesystem-paths=$($PYTHON_COMMAND -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(True))")/PySide6/typesystems/ \
+    --typesystem-paths=$($PYTHON_COMMAND -c "import PySide6, os; print(os.path.dirname(PySide6.__file__))")/typesystems/ \
     ./pyside_typesystem/bindings.h \
     ./pyside_typesystem/avatar.xml
