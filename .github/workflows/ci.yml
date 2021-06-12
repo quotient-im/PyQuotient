@@ -48,6 +48,10 @@ jobs:
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         git clone https://github.com/quotient-im/libQuotient.git
+
+        # install libclang 12
+        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+        sudo apt-get install clang-12 clang-tools-12 libclang-12-dev
     
     - name: Build
       run: |
