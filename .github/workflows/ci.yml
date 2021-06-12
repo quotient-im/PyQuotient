@@ -47,7 +47,7 @@ jobs:
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
         # is needed for macos to make poetry available
-        export PATH="/Users/runner/.local/bin:$PATH
+        export PATH="/Users/runner/.local/bin:$PATH"
 
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
