@@ -53,15 +53,14 @@ jobs:
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         git clone https://github.com/quotient-im/libQuotient.git
     
-    - name: Install Clang(ubuntu)
-      if: ${{ startsWith(matrix.os, 'ubuntu') }}
-      run: |
-        wget https://apt.llvm.org/llvm.sh
-        chmod +x llvm.sh
-        sudo ./llvm.sh 12
-    
     - name: Build
       run: |
+        if [ "${{ matrix.os }}" == "macos-10.15" ]; then
+          ls /Users/runner/work/PyQuotient/Qt/6.1.1/clang_64/include/
+        fi
+        if [ "${{ matrix.os }}" == "ubuntu-20.04" ]; then
+          export LLVM_INSTALL_DIR=/usr/lib64/clang/$(llvm-config --version)/
+        fi
         bash ./build.sh -q $Qt6_DIR
     
     - name: Run unit tests
