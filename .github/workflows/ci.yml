@@ -22,6 +22,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Cache Qt
+      if: ${{ startsWith(matrix.os, 'ubuntu') }}
       id: cache-qt
       uses: actions/cache@v2
       with:
@@ -29,6 +30,7 @@ jobs:
         key: ${{ runner.os }}-QtCache
 
     - name: Install Qt
+      if: ${{ startsWith(matrix.os, 'ubuntu') }}
       uses: jurplel/install-qt-action@v2.11.1
       with:
         version: '6.1.1'
@@ -57,6 +59,12 @@ jobs:
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         git clone https://github.com/quotient-im/libQuotient.git
+
+        if [ "${{ matrix.os }}" == "macos-10.15" ]; then
+          brew install p7zip
+          pip3 install aqtinstaller==1.2.0b3 requests
+          python3 -m aqt install -O Qt 6.1.1 mac desktop
+        fi
     
     - name: Build
       run: |
