@@ -62,7 +62,7 @@ jobs:
 
         if [ "${{ matrix.os }}" == "macos-10.15" ]; then
           brew install p7zip
-          pip3 install aqtinstaller==1.2.0b3 requests
+          pip3 install aqtinstall==1.2.0b3 requests
           python3 -m aqt install -O Qt 6.1.1 mac desktop
         fi
     
