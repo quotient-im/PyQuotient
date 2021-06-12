@@ -46,6 +46,7 @@ jobs:
         python3 poetry.py --version 1.2.0a1
         echo "$HOME/.local/bin" >> $GITHUB_PATH
         poetry install --verbose
+        pip3 install PySide6
         git clone https://github.com/quotient-im/libQuotient.git
     
     - name: Build
