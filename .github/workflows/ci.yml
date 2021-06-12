@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        os: [ubuntu-18.04, macos-10.15]
+        os: [ubuntu-20.04, macos-10.15]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,6 +32,7 @@ jobs:
         source $HOME/.poetry/env
         echo "$HOME/.poetry/bin" >> $GITHUB_PATH
         poetry install
+        git clone https://github.com/quotient-im/libQuotient.git
     
     - name: Cache Qt
       id: cache-qt
