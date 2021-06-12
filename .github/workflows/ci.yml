@@ -59,6 +59,7 @@ jobs:
           ls /Users/runner/work/PyQuotient/Qt/6.1.1/clang_64/include/
         fi
         if [ "${{ matrix.os }}" == "ubuntu-20.04" ]; then
+          sudo apt-get install llvm
           export LLVM_INSTALL_DIR=/usr/lib64/clang/$(llvm-config --version)/
         fi
         bash ./build.sh -q $Qt6_DIR
