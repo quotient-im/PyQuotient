@@ -31,6 +31,8 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.11.1
       with:
+        aqtversion: 1.2.0b3 # <1.2.0 has problem with osx installation of Qt 6.1
+      with:
         version: '6.1.1'
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
     
