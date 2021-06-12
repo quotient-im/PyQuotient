@@ -18,12 +18,14 @@ if [[ ! -z "$QT_PATH" ]]; then
 fi
 
 SHIBOKEN_COMMAND="shiboken6"
+PYTHON_COMMAND="python3"
 if [[ $POETRY = true ]]; then
     SHIBOKEN_COMMAND="poetry run $SHIBOKEN_COMMAND"
+    PYTHON_COMMAND="poetry run $PYTHON_COMMAND"
 fi
 
 $SHIBOKEN_COMMAND  $SHIBOKEN_INCLUDE_ARG \
     --project-file=pyside_typesystem/project.in \
-    --typesystem-paths=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")/PySide6/typesystems/ \
+    --typesystem-paths=$($PYTHON_COMMAND -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(True))")/PySide6/typesystems/ \
     ./pyside_typesystem/bindings.h \
     ./pyside_typesystem/avatar.xml

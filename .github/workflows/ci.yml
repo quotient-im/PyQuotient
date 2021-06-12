@@ -48,7 +48,7 @@ jobs:
     
     - name: Build
       run: |
-        bash ./build.sh
+        bash ./build.sh -q $Qt6_DIR
     
     - name: Run unit tests
       run: |
