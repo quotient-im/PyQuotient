@@ -24,11 +24,6 @@ if [[ $POETRY = true ]]; then
     PYTHON_COMMAND="poetry run $PYTHON_COMMAND"
 fi
 
-echo $PWD $PYTHON_COMMAND
-poetry show
-TYPESYSTEM_PATH=$($PYTHON_COMMAND -c "import PySide6, os; print(os.path.dirname(PySide6.__file__))")/typesystems/
-echo $TYPESYSTEM_PATH
-
 $SHIBOKEN_COMMAND  $SHIBOKEN_INCLUDE_ARG \
     --project-file=pyside_typesystem/project.in \
     --typesystem-paths=$($PYTHON_COMMAND -c "import PySide6, os; print(os.path.dirname(PySide6.__file__))")/typesystems/ \

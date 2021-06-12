@@ -2,3 +2,4 @@ libQuotient
 out
 
 __pycache__
+.pytest_cache
