@@ -18,7 +18,7 @@ if [[ ! -z "$QT_PATH" ]]; then
 fi
 
 if [[ $POETRY = true ]]; then
-    SHIBOKEN_COMMAND = "poetry shell"
+    poetry shell
 fi
 
 shiboken6  $SHIBOKEN_INCLUDE_ARG \
