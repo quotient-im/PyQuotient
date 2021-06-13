@@ -69,7 +69,7 @@ jobs:
         tree ./Qt/
         mkdir -p build
         pushd build
-        cmake -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
+        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
         make
         popd
     

@@ -26,8 +26,6 @@ set(bindings_library "PyQuotient")
 # The sample library for which we will create bindings. You can change the name to something
 # relevant for your project.
 set(target_library "Quotient")
-set(BUILD_TESTING OFF)
-set(BUILD_WITH_QT6 ON)
 add_subdirectory(${bindings_library}/libQuotient)
 
 
