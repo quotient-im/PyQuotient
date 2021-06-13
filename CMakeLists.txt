@@ -19,6 +19,9 @@ set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/l
 # Set CPP standard to C++11 minimum.
 set(CMAKE_CXX_STANDARD 11)
 
+# Instruct CMake to run moc automatically when needed.
+set(CMAKE_AUTOMOC ON)
+
 # The name of the generated bindings module (as imported in Python). You can change the name
 # to something relevant for your project.
 set(bindings_library "Avatar")
@@ -137,6 +140,8 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 
 # ====================== Shiboken target for generating binding C++ files  ====================
+find_package(Qt6 COMPONENTS Core REQUIRED)
+
 execute_process(
         COMMAND ${python_interpreter} -c "import PySide6, os; print(os.path.dirname(PySide6.__file__))"
         ${option}
@@ -145,6 +150,13 @@ execute_process(
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/
 )
 
+get_target_property(QTCORE_INCLUDES Qt6::Core INTERFACE_INCLUDE_DIRECTORIES)
+
+set(ADDITIONAL_INCLUDES)
+foreach(dir ${QTCORE_INCLUDES})
+    list(APPEND ADDITIONAL_INCLUDES -I${dir})
+endforeach()
+
 # Set up the options to pass to shiboken.
 set(shiboken_options --generator-set=shiboken --enable-parent-ctor-heuristic
     --enable-return-value-heuristic --use-isnull-as-nb_nonzero
@@ -152,7 +164,7 @@ set(shiboken_options --generator-set=shiboken --enable-parent-ctor-heuristic
     -I${CMAKE_SOURCE_DIR}
     -T${CMAKE_SOURCE_DIR}
     --typesystem-paths=${pyside6_path}/typesystems
-    -I${QT_PATH}/include/ # TODO: make dynamic
+    ${ADDITIONAL_INCLUDES}
     --output-directory=${CMAKE_CURRENT_BINARY_DIR}
     )
 
@@ -188,8 +200,6 @@ target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/Q
 
 target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
-
-find_package(Qt6 COMPONENTS Core REQUIRED)
 target_link_libraries(${bindings_library} PRIVATE Qt6::Core)
 
 # Adjust the name of generated module.
