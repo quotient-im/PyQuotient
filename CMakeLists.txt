@@ -189,7 +189,7 @@ target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/Q
 target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
 
-find_package(Qt6 COMPONENTS Core)
+find_package(Qt6 COMPONENTS Core REQUIRED)
 target_link_libraries(${bindings_library} PRIVATE Qt6::Core)
 target_include_directories(${Qt6Core_INCLUDE_DIRS})
 
