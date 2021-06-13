@@ -158,6 +158,15 @@ foreach(dir ${QTCORE_INCLUDES} ${QTCORE_PRIVATE_INCLUDES})
     list(APPEND ADDITIONAL_INCLUDES -I${dir})
 endforeach()
 
+# On macOS, check if Qt is a framework build. This affects how include paths should be handled.
+get_target_property(QtCore_is_framework Qt6::Core FRAMEWORK)
+if (QtCore_is_framework)
+    get_target_property(qt_core_library_location Qt6::Core LOCATION)
+    get_filename_component(qt_core_library_location_dir "${qt_core_library_location}" DIRECTORY)
+    get_filename_component(lib_dir "${qt_core_library_location_dir}/../" ABSOLUTE)
+    list(APPEND ADDITIONAL_INCLUDES "--framework-include-paths=${lib_dir}")
+endif()
+
 # Set up the options to pass to shiboken.
 set(shiboken_options --generator-set=shiboken --enable-parent-ctor-heuristic
     --enable-return-value-heuristic --use-isnull-as-nb_nonzero
