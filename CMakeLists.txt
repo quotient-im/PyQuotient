@@ -10,7 +10,8 @@ endif()
 project(LibQuotientBindings)
 
 option(USE_POETRY "Use poetry package manager" ON)
-set(QT_PATH /home/user/Programs/Qt/6.1.0/gcc_64/) # TODO: make dynamic
+SET(QT_PATH "" CACHE STRING "Path to qt directory")
+SET(PYTHON_ENV_VERSION "3.9" CACHE STRING "Python env version(e.g. 3.9)")
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/lib/cmake/)
 
 # ================================ General configuration ======================================
@@ -56,7 +57,7 @@ set(generated_sources
 if(USE_POETRY)
     set(python_interpreter poetry run python3)
     execute_process(
-            COMMAND poetry env use 3.8 # TODO: make dynamic
+            COMMAND poetry env use ${PYTHON_ENV_VERSION}
             WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     )
 endif()

@@ -68,7 +68,7 @@ jobs:
         fi
         mkdir -p build
         pushd build
-        cmake -q $Qt6_DIR ../
+        cmake -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
         make
         popd
     
