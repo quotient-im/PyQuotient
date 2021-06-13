@@ -191,6 +191,7 @@ target_link_libraries(${bindings_library} PRIVATE ${target_library})
 
 find_package(Qt6 COMPONENTS Core)
 target_link_libraries(${bindings_library} PRIVATE Qt6::Core)
+target_include_directories(${Qt6Core_INCLUDE_DIRS})
 
 # Adjust the name of generated module.
 set_property(TARGET ${bindings_library} PROPERTY PREFIX "")
