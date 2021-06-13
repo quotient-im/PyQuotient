@@ -151,9 +151,10 @@ execute_process(
 )
 
 get_target_property(QTCORE_INCLUDES Qt6::Core INTERFACE_INCLUDE_DIRECTORIES)
+get_target_property(QTCORE_PRIVATE_INCLUDES Qt6::CorePrivate INTERFACE_INCLUDE_DIRECTORIES)
 
 set(ADDITIONAL_INCLUDES)
-foreach(dir ${QTCORE_INCLUDES})
+foreach(dir ${QTCORE_INCLUDES} ${QTCORE_PRIVATE_INCLUDES})
     list(APPEND ADDITIONAL_INCLUDES -I${dir})
 endforeach()
 
