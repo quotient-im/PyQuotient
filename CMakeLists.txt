@@ -10,20 +10,24 @@ endif()
 project(LibQuotientBindings)
 
 option(USE_POETRY "Use poetry package manager" ON)
+set(QT_PATH /home/user/Programs/Qt/6.1.0/gcc_64/) # TODO: make dynamic
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/lib/cmake/)
 
 # ================================ General configuration ======================================
 
 # Set CPP standard to C++11 minimum.
 set(CMAKE_CXX_STANDARD 11)
 
-# The sample library for which we will create bindings. You can change the name to something
-# relevant for your project.
-set(target_library "Quotient")
-add_subdirectory(libQuotient)
-
 # The name of the generated bindings module (as imported in Python). You can change the name
 # to something relevant for your project.
 set(bindings_library "PyQuotient")
+
+# The sample library for which we will create bindings. You can change the name to something
+# relevant for your project.
+set(target_library "Quotient")
+set(BUILD_TESTING OFF)
+add_subdirectory(${bindings_library}/libQuotient)
+
 
 # The header file with all the types and functions for which bindings will be generated.
 # Usually it simply includes other headers of the library you are creating bindings for.
@@ -38,7 +42,14 @@ set(typesystem_file ${CMAKE_SOURCE_DIR}/avatar.xml)
 # library.
 # file(GLOB_RECURSE generated_sources_files "${CMAKE_CURRENT_BINARY_DIR}/${bindings_library}/*_wrapper.cpp")
 file(GLOB_RECURSE generated_sources_files "${CMAKE_CURRENT_BINARY_DIR}/Quotient/avatar/*_wrapper.cpp")
-set(generated_sources avatar_module_wrapper.cpp  quotient_avatar_python.h  quotient_avatar_wrapper.cpp  quotient_avatar_wrapper.h  quotient_wrapper.cpp  quotient_wrapper.h)
+set(generated_sources
+        ${target_library}/avatar/avatar_module_wrapper.cpp
+        ${target_library}/avatar/quotient_avatar_python.h
+        ${target_library}/avatar/quotient_avatar_wrapper.cpp
+        ${target_library}/avatar/quotient_avatar_wrapper.h
+        ${target_library}/avatar/quotient_wrapper.cpp
+        ${target_library}/avatar/quotient_wrapper.h
+)
 
 
 # ================================== Shiboken detection ======================================
@@ -46,7 +57,7 @@ if(USE_POETRY)
     set(python_interpreter poetry run python3)
     execute_process(
             COMMAND poetry env use 3.8 # TODO: make dynamic
-            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/../
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     )
 endif()
 
@@ -66,11 +77,11 @@ macro(pyside_config option output_var)
     endif()
 
     execute_process(
-      COMMAND ${python_interpreter} "pyside_typesystem/pyside_config.py"
+      COMMAND ${python_interpreter} "pyside_config.py"
               ${option}
       OUTPUT_VARIABLE ${output_var}
       OUTPUT_STRIP_TRAILING_WHITESPACE
-      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/../
+      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     )
 
     if ("${${output_var}}" STREQUAL "")
@@ -141,7 +152,7 @@ set(shiboken_options --generator-set=shiboken --enable-parent-ctor-heuristic
     -I${CMAKE_SOURCE_DIR}
     -T${CMAKE_SOURCE_DIR}
     --typesystem-paths=${pyside6_path}/typesystems
-    -I/home/user/Programs/Qt/6.1.0/gcc_64/include/ # TODO: make dynamic
+    -I${QT_PATH}/include/ # TODO: make dynamic
     --output-directory=${CMAKE_CURRENT_BINARY_DIR}
     )
 
@@ -150,7 +161,7 @@ set(generated_sources_dependencies ${wrapped_header} ${typesystem_file})
 # Add custom target to run shiboken to generate the binding cpp files.
 add_custom_command(OUTPUT ${generated_sources}
                     COMMAND ${CMAKE_COMMAND} -E env
-                    "LD_LIBRARY_PATH=/home/user/Programs/Qt/6.1.0/gcc_64/lib/" # TODO: make dynamic
+                    "LD_LIBRARY_PATH=${QT_PATH}/lib/" # TODO: make dynamic
                     ${shiboken_path}
                     ${shiboken_options} ${wrapped_header} ${typesystem_file}
                     DEPENDS ${generated_sources_dependencies}
@@ -172,6 +183,8 @@ add_library(${bindings_library} MODULE ${${bindings_library}_sources})
 target_include_directories(${bindings_library} PRIVATE ${python_include_dir})
 target_include_directories(${bindings_library} PRIVATE ${shiboken_include_dir})
 target_include_directories(${bindings_library} PRIVATE ${CMAKE_SOURCE_DIR})
+target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/QtCore/)
+target_include_directories(${bindings_library} PRIVATE ${QT_PATH}/include/)
 
 target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
