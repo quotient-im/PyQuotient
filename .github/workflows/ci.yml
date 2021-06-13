@@ -65,8 +65,8 @@ jobs:
       run: |
         if [ "${{ matrix.os }}" == "macos-10.15" ]; then
           brew install tree
+          tree /Users/runner/work/PyQuotient/Qt/6.2.0/clang_64/
         fi
-        tree ./Qt/
         mkdir -p build
         pushd build
         cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
