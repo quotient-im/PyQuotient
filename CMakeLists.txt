@@ -185,10 +185,12 @@ target_include_directories(${bindings_library} PRIVATE ${shiboken_include_dir})
 target_include_directories(${bindings_library} PRIVATE ${CMAKE_SOURCE_DIR})
 target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/)
 target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/QtCore/)
-target_include_directories(${bindings_library} PRIVATE ${QT_PATH}/include/)
 
 target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
+
+find_package(Qt6 COMPONENTS Core)
+target_link_libraries(${bindings_library} PRIVATE Qt::Core)
 
 # Adjust the name of generated module.
 set_property(TARGET ${bindings_library} PROPERTY PREFIX "")
