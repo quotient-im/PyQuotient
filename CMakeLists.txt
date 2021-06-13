@@ -190,7 +190,7 @@ target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
 
 find_package(Qt6 COMPONENTS Core)
-target_link_libraries(${bindings_library} PRIVATE Qt::Core)
+target_link_libraries(${bindings_library} PRIVATE Qt6::Core)
 
 # Adjust the name of generated module.
 set_property(TARGET ${bindings_library} PROPERTY PREFIX "")
