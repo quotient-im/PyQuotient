@@ -10,8 +10,15 @@
 
 2. Clone libQuotient:
 
-   `git clone https://github.com/quotient-im/libQuotient.git`
+   `git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient`
 
-3. Run build script:
+3. Run cmake project:
 
-   `bash ./build.sh`
+   `cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON .`
+   `make`
+
+Optional parameters:
+
+- QT_PATH
+- PYTHON_ENV_VERSION
+- USE_POETRY

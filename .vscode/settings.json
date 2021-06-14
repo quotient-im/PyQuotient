@@ -20,6 +20,7 @@
     "list": "cpp",
     "map": "cpp",
     "string": "cpp",
-    "qdir": "cpp"
+    "qdir": "cpp",
+    "qurl": "cpp"
   }
 }
