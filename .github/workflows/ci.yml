@@ -55,6 +55,9 @@ jobs:
         if [ "${{ matrix.os }}" == "macos-10.15" ]; then
           # is needed for macos to make poetry available
           export PATH="/Users/runner/.local/bin:$PATH"
+
+          # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
+          ln -s $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers $Qt6_DIR/lib/QtCore.framework/Versions/QtCore
         fi
 
         poetry install --verbose
