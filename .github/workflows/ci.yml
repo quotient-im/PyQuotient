@@ -58,6 +58,8 @@ jobs:
 
           # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
           ln -s $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/6.2.0/QtCore/
+          ln -s $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/6.2.0/QtGui/
+          ln -s $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/6.2.0/QtNetwork/
 
           brew install tree
           tree $Qt6_DIR/lib
