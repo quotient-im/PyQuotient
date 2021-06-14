@@ -140,7 +140,7 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 
 # ====================== Shiboken target for generating binding C++ files  ====================
-find_package(Qt6 COMPONENTS Core REQUIRED)
+find_package(Qt6 COMPONENTS Core Gui Network REQUIRED)
 
 execute_process(
         COMMAND ${python_interpreter} -c "import PySide6, os; print(os.path.dirname(PySide6.__file__))"
