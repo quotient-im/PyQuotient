@@ -57,7 +57,7 @@ jobs:
           export PATH="/Users/runner/.local/bin:$PATH"
 
           # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
-          ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/${{ matrix.qt-version] }}/QtCore/
+          ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtCore/
           ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtGui/
           ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtNetwork/
         fi
