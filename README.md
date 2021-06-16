@@ -15,7 +15,6 @@
 3. Run cmake project:
 
    `cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON .`
-
    `make`
 
 Optional parameters:
@@ -23,7 +22,6 @@ Optional parameters:
 - QT_PATH
 - PYTHON_ENV_VERSION
 - USE_POETRY
-
 
 ## Development
 
