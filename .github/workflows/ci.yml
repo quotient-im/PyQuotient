@@ -64,7 +64,8 @@ jobs:
 
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
-        git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
+        # git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
+        git clone https://github.com/Aksem/libQuotient.git -b qt-6.1 PyQuotient/libQuotient
     
     - name: Build
       run: |
