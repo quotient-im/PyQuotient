@@ -17,7 +17,7 @@ jobs:
       max-parallel: 1
       matrix:
         os: [ubuntu-20.04, macos-10.15]
-        qt-version: [ '6.2.0' ]
+        qt-version: [ '6.1.1' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.11.1
       with:
-        version: '6.2.0'
+        version: ${{ runner['qt-version'] }}
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
         aqtversion: ==1.2.0b3 # <1.2.0 has problem with osx installation of Qt 6
     
@@ -57,9 +57,9 @@ jobs:
           export PATH="/Users/runner/.local/bin:$PATH"
 
           # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
-          ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/6.2.0/QtCore/
-          ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/6.2.0/QtGui/
-          ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/6.2.0/QtNetwork/
+          ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/${{ runner['qt-version'] }}/QtCore/
+          ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ runner['qt-version'] }}/QtGui/
+          ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ runner['qt-version'] }}/QtNetwork/
         fi
 
         poetry install --verbose
