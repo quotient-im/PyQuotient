@@ -145,7 +145,7 @@ execute_process(
         ${option}
         OUTPUT_VARIABLE pyside6_path
         OUTPUT_STRIP_TRAILING_WHITESPACE
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
 get_target_property(QTCORE_INCLUDES Qt6::Core INTERFACE_INCLUDE_DIRECTORIES)

@@ -8,7 +8,7 @@ buildType:
       settings:
         BUILD_TESTING: 'ON'
         BUILD_WITH_QT6: 'ON'
-        QT_PATH: '/home/user/Programs/Qt/6.1.0/gcc_64/'
+        QT_PATH: '/home/user/Programs/Qt/6.1.1/gcc_64/'
         PYTHON_ENV_VERSION: '3.8'
     release:
       short: Release

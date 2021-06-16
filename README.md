@@ -6,7 +6,9 @@
 
    `poetry install`
 
-   or use pip with qt repository `http://download.qt.io/official_releases/QtForPython/`(see dependencies and their versions in pyproject.toml) [More](https://doc.qt.io/qtforpython/shiboken6/gettingstarted.html)
+   or use pip with qt repository `http://download.qt.io/official_releases/QtForPython/`(see dependencies and their versions in pyproject.toml) [More](https://doc.qt.io/qtforpython/shiboken6/gettingstarted.html): 
+   
+   `pip3 install --index-url=http://download.qt.io/official_releases/QtForPython/ --trusted-host download.qt.io shiboken6 PySide6 shiboken6-generator`
 
 2. Clone libQuotient:
 
@@ -24,6 +26,10 @@ Optional parameters:
 - USE_POETRY
 
 ## Development
+
+If you use pip, install development requirements:
+
+`pip install pytest`
 
 Run tests:
 
