@@ -1,0 +1,5 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="jobs/typesystem_basejob.xml" />
+
+  <load-typesystem name="typesystem_avatar.xml" />
+</typesystem>

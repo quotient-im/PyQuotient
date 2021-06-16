@@ -1,6 +1,10 @@
 libQuotient
 out
 cmake-build-*
+build/
+PyQuotient/PyQuotient.so
+PyQuotient/PyQuotient.dll
+PyQuotient/PyQuotient.dylib
 
 __pycache__
 .pytest_cache

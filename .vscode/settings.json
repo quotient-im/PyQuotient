@@ -21,6 +21,20 @@
     "map": "cpp",
     "string": "cpp",
     "qdir": "cpp",
-    "qurl": "cpp"
+    "qurl": "cpp",
+    "*.tcc": "cpp",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "complex": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "cwctype": "cpp",
+    "memory_resource": "cpp",
+    "locale": "cpp",
+    "optional": "cpp",
+    "streambuf": "cpp"
   }
 }
