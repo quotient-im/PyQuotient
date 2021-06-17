@@ -13,7 +13,7 @@ set(CMAKE_AUTOMOC ON)
 project(LibQuotientBindings)
 
 option(USE_POETRY "Use poetry package manager" ON)
-option(USE_PREBUILD_LIBQUOTIENT "Use prebuilt quotient" ON)
+option(USE_PREBUILD_LIBQUOTIENT "Use prebuilt quotient" OFF)
 SET(QT_PATH "" CACHE STRING "Path to qt directory")
 SET(PYTHON_ENV_VERSION "3.9" CACHE STRING "Python env version(e.g. 3.9)")
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/lib/cmake/)
