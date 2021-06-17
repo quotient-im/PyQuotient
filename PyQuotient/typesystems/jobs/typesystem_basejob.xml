@@ -1,6 +1,9 @@
 <typesystem package="PyQuotient">
   <load-typesystem name="typesystem_core_common.xml" generate="no" />
-  <load-typesystem name="typesystem_requestdata.xml" />
+  <!-- <load-typesystem name="typesystem_requestdata.xml" /> -->
+
+  <rejection class="Quotient" function-name="qt_getEnumMetaObject"/>
+  <rejection class="Quotient" function-name="qt_getEnumName"/>
 
   <namespace-type name="Quotient">
     <enum-type name="HttpVerb"/>

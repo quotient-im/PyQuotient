@@ -2,5 +2,5 @@
   <load-typesystem name="typesystem_qt.xml" />
   <load-typesystem name="jobs/typesystem_basejob.xml" />
 
-  <load-typesystem name="typesystem_avatar.xml" />
+  <!-- <load-typesystem name="typesystem_avatar.xml" /> -->
 </typesystem>

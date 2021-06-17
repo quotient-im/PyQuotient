@@ -1,4 +1,4 @@
 <typesystem package="PyQuotient">
-  <value-type name="QDebug">
+  <value-type name="QDebug" stream="yes">
   </value-type>
 </typesystem>
