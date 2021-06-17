@@ -211,7 +211,7 @@ set(${bindings_library}_sources ${generated_sources} PyQuotient/bindings.h)
 # TODO: use cmake rpath handling mechanisms
 if(UNIX AND NOT APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-rpath,'${pyside6_path}'")
-endif
+endif()
 
 # Define and build the bindings library.
 add_library(${bindings_library} MODULE ${${bindings_library}_sources})
