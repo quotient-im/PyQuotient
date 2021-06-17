@@ -1,6 +1,5 @@
 <typesystem package="PyQuotient">
   <load-typesystem name="typesystem_core_common.xml" generate="no" />
-  <!-- <load-typesystem name="typesystem_requestdata.xml" /> -->
 
   <rejection class="Quotient" function-name="qt_getEnumMetaObject"/>
   <rejection class="Quotient" function-name="qt_getEnumName"/>
@@ -10,11 +9,8 @@
 
     <object-type name="BaseJob">
         <enum-type name="StatusCode"/>
-        <value-type name="Status">
-        </value-type>
-
-        <!-- <object-type name="Query">
-        </object-type> -->
+        <object-type name="Query" />
+        <value-type name="Status" />
     </object-type>
   </namespace-type>
 </typesystem>

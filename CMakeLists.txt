@@ -207,6 +207,10 @@ add_custom_command(OUTPUT ${generated_sources}
 # Set the cpp files which will be used for the bindings library.
 set(${bindings_library}_sources ${generated_sources} PyQuotient/bindings.h)
 
+# temporary solution
+# TODO: use cmake rpath handling mechanisms
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-rpath,'${pyside6_path}'")
+
 # Define and build the bindings library.
 add_library(${bindings_library} MODULE ${${bindings_library}_sources})
 
@@ -219,7 +223,12 @@ target_include_directories(${bindings_library} PRIVATE ${pyside6_path}/include/Q
 
 target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
-target_link_libraries(${bindings_library} PRIVATE Qt6::Core)
+target_link_libraries(${bindings_library} PRIVATE Qt6::Core Qt6::Gui Qt6::Network)
+
+add_library(pyside STATIC IMPORTED GLOBAL)
+# TODO: change hardcoded name
+SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.so.6.1)
+target_link_libraries(${bindings_library} PRIVATE pyside)
 
 # Adjust the name of generated module.
 set_property(TARGET ${bindings_library} PROPERTY PREFIX "")
