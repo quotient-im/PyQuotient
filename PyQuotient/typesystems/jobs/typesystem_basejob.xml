@@ -1,6 +1,17 @@
 <typesystem package="PyQuotient">
   <load-typesystem name="typesystem_core_common.xml" generate="no" />
+  <load-typesystem name="typesystem_requestdata.xml" />
+
   <namespace-type name="Quotient">
     <enum-type name="HttpVerb"/>
+
+    <object-type name="BaseJob">
+        <enum-type name="StatusCode"/>
+        <value-type name="Status">
+        </value-type>
+
+        <!-- <object-type name="Query">
+        </object-type> -->
+    </object-type>
   </namespace-type>
 </typesystem>

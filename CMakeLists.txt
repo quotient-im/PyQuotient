@@ -6,10 +6,14 @@ if(POLICY CMP0068)
   cmake_policy(SET CMP0068 NEW)
 endif()
 
+# Instruct CMake to run moc automatically when needed.
+set(CMAKE_AUTOMOC ON)
+
 # Consider changing the project name to something relevant for you.
 project(LibQuotientBindings)
 
 option(USE_POETRY "Use poetry package manager" ON)
+option(USE_PREBUILD_LIBQUOTIENT "Use prebuilt quotient" ON)
 SET(QT_PATH "" CACHE STRING "Path to qt directory")
 SET(PYTHON_ENV_VERSION "3.9" CACHE STRING "Python env version(e.g. 3.9)")
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/lib/cmake/)
@@ -19,16 +23,17 @@ set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/l
 # Set CPP standard to C++11 minimum.
 set(CMAKE_CXX_STANDARD 11)
 
-# Instruct CMake to run moc automatically when needed.
-set(CMAKE_AUTOMOC ON)
-
 # The name of the generated bindings module (as imported in Python)
 set(bindings_library "PyQuotient")
 
 # library for which we will create bindings(its name is libQuotient, but cmake project name is 'Quotient')
 set(target_library "Quotient")
-add_subdirectory(${bindings_library}/libQuotient)
-
+if(USE_PREBUILD_LIBQUOTIENT)
+    add_library(Quotient STATIC IMPORTED GLOBAL)
+    SET_TARGET_PROPERTIES(Quotient PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/${bindings_library}/libQuotient${CMAKE_STATIC_LIBRARY_SUFFIX})
+else()
+    add_subdirectory(${bindings_library}/libQuotient)
+endif()
 
 # The header file with all the types and functions for which bindings will be generated.
 # Usually it simply includes other headers of the library you are creating bindings for.
@@ -170,9 +175,15 @@ if (QtCore_is_framework)
 endif()
 
 # Set up the options to pass to shiboken.
-set(shiboken_options --generator-set=shiboken --enable-parent-ctor-heuristic
-    --enable-return-value-heuristic --use-isnull-as-nb_nonzero
+set(shiboken_options
+    --generator-set=shiboken
+    --enable-parent-ctor-heuristic
+    # --enable-return-value-heuristic
+    --use-isnull-as-nb_nonzero
     --avoid-protected-hack
+    --enable-pyside-extensions
+    --no-suppress-warnings
+    --debug-level=medium # full
     -I${CMAKE_SOURCE_DIR}
     -T${CMAKE_SOURCE_DIR}
     --typesystem-paths=${pyside6_path}/typesystems
@@ -285,10 +296,12 @@ endif()
 # =============================================================================================
 # Install the library and the bindings module into the source folder near the main.py file, so
 # that the Python interpeter successfully imports the used module.
-install(TARGETS ${bindings_library} ${target_library}
-        LIBRARY DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}
-        RUNTIME DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}
-        )
+if(NOT USE_PREBUILD_LIBQUOTIENT)
+    install(TARGETS ${bindings_library} ${target_library}
+            LIBRARY DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}
+            RUNTIME DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}
+            )
+endif()
 install(FILES ${windows_shiboken_shared_libraries} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
 # =============================================================================================
 # !!! End of dubious section.

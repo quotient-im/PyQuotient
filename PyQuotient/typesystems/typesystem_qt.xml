@@ -1,0 +1,4 @@
+<typesystem package="PyQuotient">
+  <value-type name="QDebug">
+  </value-type>
+</typesystem>

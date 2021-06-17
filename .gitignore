@@ -5,6 +5,7 @@ build/
 PyQuotient/PyQuotient.so
 PyQuotient/PyQuotient.dll
 PyQuotient/PyQuotient.dylib
+PyQuotient/libQuotient.a
 
 __pycache__
 .pytest_cache
