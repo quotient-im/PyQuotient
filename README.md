@@ -33,6 +33,6 @@ If you use pip, install development requirements:
 
 Run tests:
 
-* If you use poetry: `poetry run pytest`
+* If you use poetry: `poetry run python -m pytest`
 
-* otherwise: `pytest`
+* otherwise: `python -m pytest`
