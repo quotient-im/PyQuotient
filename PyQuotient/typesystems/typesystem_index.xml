@@ -4,5 +4,6 @@
   <load-typesystem name="jobs/typesystem_requestdata.xml" />
 
   <!-- <load-typesystem name="typesystem_avatar.xml" /> -->
+  <load-typesystem name="typesystem_connectiondata.xml" />
   <load-typesystem name="typesystem_networkaccessmanager.xml" />
 </typesystem>

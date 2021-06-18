@@ -54,6 +54,7 @@ set(generated_wrappers
     quotient_basejob_status
     quotient_requestdata
 
+    quotient_connectiondata
     quotient_networkaccessmanager
 )
 set(generated_sources

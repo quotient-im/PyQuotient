@@ -25,6 +25,8 @@ Optional parameters:
 - PYTHON_ENV_VERSION
 - USE_POETRY
 
+**Note:**: deprecated API(properties, methods, etc) is not tested!
+
 ## Development
 
 If you use pip, install development requirements:
