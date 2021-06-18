@@ -243,10 +243,12 @@ target_link_libraries(${bindings_library} PRIVATE ${shiboken_shared_libraries})
 target_link_libraries(${bindings_library} PRIVATE ${target_library})
 target_link_libraries(${bindings_library} PRIVATE Qt6::Core Qt6::Gui Qt6::Network)
 
-add_library(pyside STATIC IMPORTED GLOBAL)
-# TODO: change hardcoded name
-SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.so.6.1)
-target_link_libraries(${bindings_library} PRIVATE pyside)
+if(UNIX AND NOT APPLE)
+    add_library(pyside STATIC IMPORTED GLOBAL)
+    # TODO: change hardcoded name
+    SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.so.6.1)
+    target_link_libraries(${bindings_library} PRIVATE pyside)
+endif()
 
 # Adjust the name of generated module.
 set_property(TARGET ${bindings_library} PROPERTY PREFIX "")
