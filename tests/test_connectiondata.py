@@ -22,8 +22,7 @@ def test_connectiondata_create():
     assert connection_data.baseUrl() == base_url
 
 
-# TODO: submit
-# TODO: limitRate
+# TODO: submit and limitRate. These methods will be tested after BaseJob tests
 
 
 def test_connectiondata_setbaseurl(connection_data):
