@@ -48,10 +48,13 @@ set(typesystem_file ${CMAKE_SOURCE_DIR}/${bindings_library}/typesystems/typesyst
 # library.
 set(generated_wrappers
     quotient
+
     quotient_basejob
     quotient_basejob_query
     quotient_basejob_status
     quotient_requestdata
+
+    quotient_networkaccessmanager
 )
 set(generated_sources
         ${bindings_library}/pyquotient_python.h

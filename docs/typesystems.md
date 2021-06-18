@@ -8,3 +8,9 @@
 ```
 
 It's not needed for common enums.
+
+2. If you use QtNetwork in bindings, you need also to include `QHstsPolicy` in `bindings.h`. See [PYSIDE-711](https://bugreports.qt.io/browse/PYSIDE-711) for details.
+
+```c
+#include <QtNetwork/QHstsPolicy>
+```
