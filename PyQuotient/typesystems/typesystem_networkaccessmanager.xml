@@ -1,0 +1,7 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_network.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="NetworkAccessManager" />
+  </namespace-type>
+</typesystem>

@@ -77,4 +77,4 @@ jobs:
     
     - name: Run unit tests
       run: |
-        poetry run pytest
+        poetry run python3 -m pytest
