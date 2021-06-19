@@ -36,6 +36,20 @@ jobs:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
         aqtversion: ==1.2.0b3 # <1.2.0 has problem with osx installation of Qt 6
     
+    - name: Cache Python dependencies
+      if: ${{ runner.os == 'Linux' }}
+      uses: actions/cache@v2
+      with:
+        path: /home/runner/.cache/pypoetry/
+        key: ${{ hashFiles('${{ runner.workspace }}/poetry.lock') }}
+
+    - name: Cache Python dependencies
+      if: ${{ runner.os == 'macOS' }}
+      uses: actions/cache@v2
+      with:
+        path: /Users/runner/Library/Caches/pypoetry/
+        key: ${{ hashFiles('${{ runner.workspace }}/poetry.lock') }}
+
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
@@ -52,7 +66,7 @@ jobs:
         python3 poetry.py --version 1.2.0a1
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-        if [ "${{ matrix.os }}" == "macos-10.15" ]; then
+        if [ "${{ runner.os }}" == "macOS" ]; then
           # is needed for macos to make poetry available
           export PATH="/Users/runner/.local/bin:$PATH"
 
