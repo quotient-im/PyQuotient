@@ -41,14 +41,14 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /home/runner/.cache/pypoetry/
-        key: ${{ hashFiles('${{ runner.workspace }}/poetry.lock') }}
+        key: ${{ hashFiles('**/poetry.lock') }}
 
     - name: Cache Python dependencies
       if: ${{ runner.os == 'macOS' }}
       uses: actions/cache@v2
       with:
         path: /Users/runner/Library/Caches/pypoetry/
-        key: ${{ hashFiles('${{ runner.workspace }}/poetry.lock') }}
+        key: ${{ hashFiles('**/poetry.lock') }}
 
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
