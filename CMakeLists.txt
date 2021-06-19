@@ -192,7 +192,7 @@ set(shiboken_options
     --avoid-protected-hack
     --enable-pyside-extensions
     --no-suppress-warnings
-    --debug-level=medium # full
+    --debug-level=full # full
     -I${CMAKE_SOURCE_DIR}
     -T${CMAKE_SOURCE_DIR}
     --typesystem-paths=${pyside6_path}/typesystems

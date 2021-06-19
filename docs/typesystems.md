@@ -14,3 +14,9 @@ It's not needed for common enums.
 ```c
 #include <QtNetwork/QHstsPolicy>
 ```
+
+3. If you need type with angle brackets in its name, use `&lt;` and `&gt;`:
+
+```xml
+<property name="ignoredSslErrors" type="QList&lt;QSslError&gt;" get="ignoredSslErrors" />
+```

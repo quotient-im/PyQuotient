@@ -1,4 +1,4 @@
-<typesystem package="PyQuotient">
+<typesystem package="PyQuotient" snake="yes">
   <!-- <load-typesystem name="typesystem_qt.xml" /> -->
   <load-typesystem name="jobs/typesystem_basejob.xml" />
   <load-typesystem name="jobs/typesystem_requestdata.xml" />

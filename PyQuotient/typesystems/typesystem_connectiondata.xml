@@ -2,6 +2,12 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="ConnectionData" />
+    <object-type name="ConnectionData">
+      <property name="accessToken" type="QByteArray" get="accessToken" set="setToken" />
+      <property name="baseUrl" type="QUrl" get="baseUrl" set="setBaseUrl" />
+      <property name="deviceId" type="QString" get="deviceId" set="setDeviceId" />
+      <property name="lastEvent" type="QString" get="lastEvent" set="setLastEvent" />
+      <property name="userId" type="QString" get="userId" set="setUserId" />
+    </object-type>
   </namespace-type>
 </typesystem>
