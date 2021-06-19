@@ -27,6 +27,21 @@ Optional parameters:
 
 **Note:**: deprecated API(properties, methods, etc) is not tested!
 
+
+### Usage
+
+After PyQuotient import use also `__feature__` import to be able to use API with snake case and true properties:
+
+```python
+from PyQuotient import Quotient
+from __feature__ import snake_case, true_property
+
+...
+
+```
+
+if you use PySide, `__feature__` import must be after both PyQuotient and PySide, order of imports is important.
+
 ## Development
 
 If you use pip, install development requirements:
