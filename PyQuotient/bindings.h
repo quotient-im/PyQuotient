@@ -13,7 +13,9 @@
 #include "libQuotient/lib/jobs/requestdata.h"
 
 // typesystem_avatar
-#include "libQuotient/lib/avatar.h"
+// #include "libQuotient/lib/avatar.h"
+// typesystem_connectiondata
+#include "libQuotient/lib/connectiondata.h"
 // typesystem_networkaccessmanager
 #include "libQuotient/lib/networkaccessmanager.h"
 #endif // BINDINGS_H

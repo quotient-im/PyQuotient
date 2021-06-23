@@ -1,7 +1,10 @@
 <typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
   <load-typesystem name="typesystem_network.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="NetworkAccessManager" />
+    <object-type name="NetworkAccessManager">
+      <property name="ignoredSslErrors" type="QList&lt;QSslError&gt;" get="ignoredSslErrors" />
+    </object-type>
   </namespace-type>
 </typesystem>
