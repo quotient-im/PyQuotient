@@ -11,6 +11,8 @@ buildType:
         QT_PATH: '/home/user/Programs/Qt/6.1.1/gcc_64/'
         PYTHON_ENV_VERSION: '3.8'
         USE_PREBUILD_LIBQUOTIENT: ON
+        GTAD_PATH: '/home/user/Development/Matrix/build-gtad-Desktop-Debug/gtad'
+        MATRIX_DOC_PATH: '/home/user/Development/Matrix/matrix-doc/data/'
     release:
       short: Release
       long: Optimize generated code

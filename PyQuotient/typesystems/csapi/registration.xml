@@ -1,0 +1,20 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  <!-- <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_msisdn_validation.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_token_response.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_email_validation.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/auth_data.xml" generate="no" /> -->
+
+  <namespace-type name="Quotient">
+    <object-type name="RegisterJob" />
+    <object-type name="RequestTokenToRegisterEmailJob" />
+    <object-type name="RequestTokenToRegisterMSISDNJob" />
+    <object-type name="ChangePasswordJob" />
+    <object-type name="RequestTokenToResetPasswordEmailJob" />
+    <object-type name="RequestTokenToResetPasswordMSISDNJob" />
+    <object-type name="DeactivateAccountJob" />
+    <object-type name="CheckUsernameAvailabilityJob" />
+  </namespace-type>
+</typesystem>

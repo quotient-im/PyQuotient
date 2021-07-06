@@ -1,0 +1,10 @@
+<typesystem package="PyQuotient">
+    <load-typesystem name="typesystem_core.xml" generate="no" />
+    
+
+    <namespace-type name="Quotient">
+        <value-type name="FieldType" />
+        <value-type name="ProtocolInstance" />
+        <value-type name="ThirdPartyProtocol" />
+    </namespace-type>
+</typesystem>

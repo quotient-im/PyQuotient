@@ -1,0 +1,20 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  <!-- <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_msisdn_validation.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_token_response.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/request_email_validation.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/auth_data.xml" generate="no" /> -->
+
+  <namespace-type name="Quotient">
+    <object-type name="GetAccount3PIDsJob" />
+    <object-type name="Post3PIDsJob" />
+    <object-type name="Add3PIDJob" />
+    <object-type name="Bind3PIDJob" />
+    <object-type name="Delete3pidFromAccountJob" />
+    <object-type name="Unbind3pidFromAccountJob" />
+    <object-type name="RequestTokenTo3PIDEmailJob" />
+    <object-type name="RequestTokenTo3PIDMSISDNJob" />
+  </namespace-type>
+</typesystem>

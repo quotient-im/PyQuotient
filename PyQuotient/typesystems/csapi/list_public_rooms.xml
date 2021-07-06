@@ -1,0 +1,13 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/public_rooms_response.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="GetRoomVisibilityOnDirectoryJob" />
+    <object-type name="SetRoomVisibilityOnDirectoryJob" />
+    <object-type name="GetPublicRoomsJob" />
+    <object-type name="QueryPublicRoomsJob" />
+  </namespace-type>
+</typesystem>

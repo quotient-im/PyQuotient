@@ -1,0 +1,11 @@
+<typesystem package="PyQuotient">
+    <load-typesystem name="typesystem_core.xml" generate="no" />
+
+    <namespace-type name="Quotient">
+      {{#models}}
+        {{#model}}
+        <value-type name="{{name}}" />
+        {{/model}}
+      {{/models}}
+    </namespace-type>
+</typesystem>

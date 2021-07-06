@@ -1,0 +1,11 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  
+
+  <namespace-type name="Quotient">
+    <object-type name="SetPresenceJob" />
+    <object-type name="GetPresenceJob" />
+  </namespace-type>
+</typesystem>

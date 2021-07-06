@@ -1,0 +1,13 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  
+
+  <namespace-type name="Quotient">
+    <object-type name="SetAccountDataJob" />
+    <object-type name="GetAccountDataJob" />
+    <object-type name="SetAccountDataPerRoomJob" />
+    <object-type name="GetAccountDataPerRoomJob" />
+  </namespace-type>
+</typesystem>

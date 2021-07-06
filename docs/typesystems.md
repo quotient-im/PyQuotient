@@ -20,3 +20,5 @@ It's not needed for common enums.
 ```xml
 <property name="ignoredSslErrors" type="QList&lt;QSslError&gt;" get="ignoredSslErrors" />
 ```
+
+4. Don't create separate typesystem definition file for header-only library. If typesystem is loaded using `<load-typesystem>` shiboken(tested on 6.1.1) expects appropriate module.

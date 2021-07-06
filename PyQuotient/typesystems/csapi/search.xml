@@ -1,0 +1,10 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/room_event_filter.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="SearchJob" />
+  </namespace-type>
+</typesystem>

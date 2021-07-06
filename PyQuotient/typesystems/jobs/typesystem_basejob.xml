@@ -4,14 +4,23 @@
 
   <rejection class="Quotient" function-name="qt_getEnumMetaObject"/>
   <rejection class="Quotient" function-name="qt_getEnumName"/>
+  <rejection class="JsonObjectConverter" />
 
   <namespace-type name="Quotient">
     <enum-type name="HttpVerb"/>
 
     <object-type name="BaseJob">
         <enum-type name="StatusCode"/>
-        <object-type name="Query" />
         <value-type name="Status" />
+
+        <property name="isBackground" type="bool" get="isBackground" />
+        <property name="status" type="Quotient::BaseJob::Status" get="status" />
+        <property name="statusCaption" type="QString" get="statusCaption" />
+        <property name="jsonData" type="QJsonObject" get="jsonData" />
+        <property name="jsonItems" type="QJsonArray" get="jsonItems" />
+        <property name="error" type="int" get="error" />
+        <property name="errorString" type="QString" get="errorString" />
+        <property name="errorUrl" type="QUrl" get="errorUrl" />
     </object-type>
   </namespace-type>
 </typesystem>
