@@ -2,11 +2,14 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/wellknown/full.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/user_identifier.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetLoginFlowsJob" />
-    <object-type name="LoginJob" />
+    <object-type name="GetLoginFlowsJob">
+      <!-- Inner data structures -->
+      <object-type name="LoginFlow" />
+    </object-type>
+    <object-type name="LoginJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

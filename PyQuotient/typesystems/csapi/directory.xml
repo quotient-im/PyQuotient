@@ -2,12 +2,19 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="SetRoomAliasJob" />
-    <object-type name="GetRoomIdByAliasJob" />
-    <object-type name="DeleteRoomAliasJob" />
-    <object-type name="GetLocalAliasesJob" />
+    <object-type name="SetRoomAliasJob">
+      
+    </object-type>
+    <object-type name="GetRoomIdByAliasJob">
+      
+    </object-type>
+    <object-type name="DeleteRoomAliasJob">
+      
+    </object-type>
+    <object-type name="GetLocalAliasesJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

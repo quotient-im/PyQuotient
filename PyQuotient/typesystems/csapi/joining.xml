@@ -2,10 +2,13 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/third_party_signed.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="JoinRoomByIdJob" />
-    <object-type name="JoinRoomJob" />
+    <object-type name="JoinRoomByIdJob">
+      
+    </object-type>
+    <object-type name="JoinRoomJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

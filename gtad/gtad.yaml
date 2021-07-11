@@ -212,11 +212,11 @@ mustache:
 
   templates:
     data:
-      .xml: "{{>../../../gtad/typesystem_data.xml.mustache}}"
+      .xml: "{{>./typesystem_data.xml.mustache}}"
 
 
     api:
-      .xml: "{{>../../../gtad/typesystem.xml.mustache}}"
+      .xml: "{{>./typesystem.xml.mustache}}"
 
 
 

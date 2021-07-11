@@ -2,10 +2,16 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="GetPushersJob" />
-    <object-type name="PostPusherJob" />
+    <object-type name="GetPushersJob">
+      <!-- Inner data structures -->
+      <value-type name="PusherData" />
+      <value-type name="Pusher" />
+    </object-type>
+    <object-type name="PostPusherJob">
+      <!-- Inner data structures -->
+      <value-type name="PusherData" />
+    </object-type>
   </namespace-type>
 </typesystem>

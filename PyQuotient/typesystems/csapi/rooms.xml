@@ -2,13 +2,23 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="GetOneRoomEventJob" />
-    <object-type name="GetRoomStateWithKeyJob" />
-    <object-type name="GetRoomStateJob" />
-    <object-type name="GetMembersByRoomJob" />
-    <object-type name="GetJoinedMembersByRoomJob" />
+    <object-type name="GetOneRoomEventJob">
+      
+    </object-type>
+    <object-type name="GetRoomStateWithKeyJob">
+      
+    </object-type>
+    <object-type name="GetRoomStateJob">
+      
+    </object-type>
+    <object-type name="GetMembersByRoomJob">
+      
+    </object-type>
+    <object-type name="GetJoinedMembersByRoomJob">
+      <!-- Inner data structures -->
+      <value-type name="RoomMember" />
+    </object-type>
   </namespace-type>
 </typesystem>

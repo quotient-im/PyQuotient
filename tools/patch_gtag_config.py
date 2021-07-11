@@ -17,7 +17,7 @@ def copy_and_patch():
     replace_in_file(
         gtag_config_path,
         original_config_part,
-        '.xml: "{{>../../../gtad/typesystem.xml.mustache}}"\n\n'
+        '.xml: "{{>./typesystem.xml.mustache}}"\n\n'
     )
 
     # data template
@@ -25,7 +25,7 @@ def copy_and_patch():
     replace_in_file(
         gtag_config_path,
         original_config_part,
-        '.xml: "{{>../../../gtad/typesystem_data.xml.mustache}}"\n\n'
+        '.xml: "{{>./typesystem_data.xml.mustache}}"\n\n'
     )
 
     # remove unneeded includes

@@ -2,13 +2,21 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/cross_signing_key.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/device_keys.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="UploadKeysJob" />
-    <object-type name="QueryKeysJob" />
-    <object-type name="ClaimKeysJob" />
-    <object-type name="GetKeysChangesJob" />
+    <object-type name="UploadKeysJob">
+      
+    </object-type>
+    <object-type name="QueryKeysJob">
+      <!-- Inner data structures -->
+      <value-type name="UnsignedDeviceInfo" />
+      <value-type name="DeviceInformation" />
+    </object-type>
+    <object-type name="ClaimKeysJob">
+      
+    </object-type>
+    <object-type name="GetKeysChangesJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

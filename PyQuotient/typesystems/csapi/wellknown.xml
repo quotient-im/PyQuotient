@@ -2,9 +2,10 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/wellknown/full.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetWellknownJob" />
+    <object-type name="GetWellknownJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

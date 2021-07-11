@@ -2,10 +2,13 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="LogoutJob" />
-    <object-type name="LogoutAllJob" />
+    <object-type name="LogoutJob">
+      
+    </object-type>
+    <object-type name="LogoutAllJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

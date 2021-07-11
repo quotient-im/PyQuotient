@@ -2,14 +2,22 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/auth_data.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/client_device.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetDevicesJob" />
-    <object-type name="GetDeviceJob" />
-    <object-type name="UpdateDeviceJob" />
-    <object-type name="DeleteDeviceJob" />
-    <object-type name="DeleteDevicesJob" />
+    <object-type name="GetDevicesJob">
+      
+    </object-type>
+    <object-type name="GetDeviceJob">
+      
+    </object-type>
+    <object-type name="UpdateDeviceJob">
+      
+    </object-type>
+    <object-type name="DeleteDeviceJob">
+      
+    </object-type>
+    <object-type name="DeleteDevicesJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

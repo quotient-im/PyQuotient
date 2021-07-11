@@ -2,9 +2,11 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="SearchUserDirectoryJob" />
+    <object-type name="SearchUserDirectoryJob">
+      <!-- Inner data structures -->
+      <value-type name="User" />
+    </object-type>
   </namespace-type>
 </typesystem>

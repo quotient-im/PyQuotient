@@ -2,10 +2,13 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="BanJob" />
-    <object-type name="UnbanJob" />
+    <object-type name="BanJob">
+      
+    </object-type>
+    <object-type name="UnbanJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

@@ -2,9 +2,21 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/room_event_filter.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="SearchJob" />
+    <object-type name="SearchJob">
+      <!-- Inner data structures -->
+      <value-type name="IncludeEventContext" />
+      <value-type name="Group" />
+      <value-type name="Groupings" />
+      <value-type name="RoomEventsCriteria" />
+      <value-type name="Categories" />
+      <value-type name="UserProfile" />
+      
+      
+      <value-type name="GroupValue" />
+      
+      
+    </object-type>
   </namespace-type>
 </typesystem>

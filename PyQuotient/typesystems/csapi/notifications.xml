@@ -2,9 +2,11 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  
 
   <namespace-type name="Quotient">
-    <object-type name="GetNotificationsJob" />
+    <object-type name="GetNotificationsJob">
+      <!-- Inner data structures -->
+      
+    </object-type>
   </namespace-type>
 </typesystem>

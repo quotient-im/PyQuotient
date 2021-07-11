@@ -2,18 +2,31 @@
   <load-typesystem name="typesystem_core.xml" generate="no" />
   
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/push_condition.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/push_rule.xml" generate="no" />
-  <load-typesystem name="/home/user/Development/Matrix/PyQuotient/PyQuotient/typesystems/csapi/definitions/push_ruleset.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetPushRulesJob" />
-    <object-type name="GetPushRuleJob" />
-    <object-type name="DeletePushRuleJob" />
-    <object-type name="SetPushRuleJob" />
-    <object-type name="IsPushRuleEnabledJob" />
-    <object-type name="SetPushRuleEnabledJob" />
-    <object-type name="GetPushRuleActionsJob" />
-    <object-type name="SetPushRuleActionsJob" />
+    <object-type name="GetPushRulesJob">
+      
+    </object-type>
+    <object-type name="GetPushRuleJob">
+      
+    </object-type>
+    <object-type name="DeletePushRuleJob">
+      
+    </object-type>
+    <object-type name="SetPushRuleJob">
+      
+    </object-type>
+    <object-type name="IsPushRuleEnabledJob">
+      
+    </object-type>
+    <object-type name="SetPushRuleEnabledJob">
+      
+    </object-type>
+    <object-type name="GetPushRuleActionsJob">
+      
+    </object-type>
+    <object-type name="SetPushRuleActionsJob">
+      
+    </object-type>
   </namespace-type>
 </typesystem>

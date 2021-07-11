@@ -6,7 +6,14 @@
 
   <namespace-type name="Quotient">
     {{#operations.operation}}
-    <object-type name="{{camelCaseOperationId}}Job" />
+    <object-type name="{{camelCaseOperationId}}Job">
+      {{#models}}
+      <!-- Inner data structures -->
+        {{#model}}
+      <value-type name="{{name}}" />
+        {{/model}}
+      {{/models}}
+    </object-type>
     {{/operations.operation}}
   </namespace-type>
 </typesystem>
