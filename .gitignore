@@ -10,4 +10,4 @@ PyQuotient/libQuotient.a
 __pycache__
 .pytest_cache
 
-.vscode/settings.json
+.vscode
