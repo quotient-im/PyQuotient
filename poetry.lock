@@ -52,11 +52,11 @@ source = ["Cython (>=0.29.7)"]
 
 [[package]]
 name = "packaging"
-version = "20.9"
+version = "21.0"
 description = "Core utilities for Python packages"
 category = "dev"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.6"
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
@@ -90,7 +90,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "pyside6"
-version = "6.1.1"
+version = "6.1.2"
 description = "Python / C++ bindings helper module"
 category = "main"
 optional = false
@@ -138,7 +138,7 @@ dev = ["pre-commit", "tox", "pytest-asyncio"]
 
 [[package]]
 name = "shiboken6"
-version = "6.1.1"
+version = "6.1.2"
 description = "Python / C++ bindings helper module"
 category = "main"
 optional = false
@@ -151,14 +151,14 @@ reference = "qt"
 
 [[package]]
 name = "shiboken6-generator"
-version = "6.1.1"
+version = "6.1.2"
 description = "Python / C++ bindings generator"
 category = "main"
 optional = false
 python-versions = ">=3.6, <3.10"
 
 [package.dependencies]
-shiboken6 = "6.1.1"
+shiboken6 = "6.1.2"
 
 [package.source]
 type = "legacy"
@@ -244,8 +244,8 @@ lxml = [
     {file = "lxml-4.6.3.tar.gz", hash = "sha256:39b78571b3b30645ac77b95f7c69d1bffc4cf8c3b157c435a34da72e78c82468"},
 ]
 packaging = [
-    {file = "packaging-20.9-py2.py3-none-any.whl", hash = "sha256:67714da7f7bc052e064859c05c595155bd1ee9f69f76557e21f051443c20947a"},
-    {file = "packaging-20.9.tar.gz", hash = "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"},
+    {file = "packaging-21.0-py3-none-any.whl", hash = "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"},
+    {file = "packaging-21.0.tar.gz", hash = "sha256:7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"},
 ]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
@@ -260,12 +260,12 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pyside6 = [
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:a530a7e1c7007fddd8210dcdbf7e6dada8387c73b3c3a209bd618422cee59266"},
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:f5c8a46e34226a756b620a1c1ab92641973870d60b5accb668216c9aac50044d"},
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:9d870456b6d75567c9837855557fef590cd12dadc9b0b227d2c5a640c973fa8a"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:1d15b1008a21a6176f5022debb5aacd8e77913141a4ac7bf1c08ef9501babb3c"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:2bbaa73e24b6ff8550607d9772d3ea1158f63259e18b05e790fbd29900f90e27"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:71511be33bf87480cbabc9d1e08e0e2274546ee9d54b6e796e5d530a09845430"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:d95286a6d59f29f5cad18c4346166f94bfedff9a61056d9b30d641e7a6ee0b28"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:dab04edbde131d09a885fc2c945d9ea3f8e90e6d73546e66de5c2265c4731cf9"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:2dda3467d56ec76031b36ce2571e931cf5f3b6682497edc8a004e0360436da5d"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:acdbf0f085d8d07125ca5acc2ee6b1c56c97c91bd924ebfbcee7ac7d166e7bbe"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:745428c03831f5d60c3ad08b2cbcf25342aef5abfba9d7e79b3a25b38d4bff31"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:6b60c5f7ca1a272526c49a9e5f4cc9a4f5657e89c2c36eaa81f24b4c027847d9"},
 ]
 pytest = [
     {file = "pytest-6.2.4-py3-none-any.whl", hash = "sha256:91ef2131a9bd6be8f76f1f08eac5c5317221d6ad1e143ae03894b862e8976890"},
@@ -276,17 +276,17 @@ pytest-mock = [
     {file = "pytest_mock-3.6.1-py3-none-any.whl", hash = "sha256:30c2f2cc9759e76eee674b81ea28c9f0b94f8f0445a1b87762cadf774f0df7e3"},
 ]
 shiboken6 = [
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:a530a7e1c7007fddd8210dcdbf7e6dada8387c73b3c3a209bd618422cee59266"},
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:f5c8a46e34226a756b620a1c1ab92641973870d60b5accb668216c9aac50044d"},
-    {file = "PySide6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:9d870456b6d75567c9837855557fef590cd12dadc9b0b227d2c5a640c973fa8a"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:1d15b1008a21a6176f5022debb5aacd8e77913141a4ac7bf1c08ef9501babb3c"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:2bbaa73e24b6ff8550607d9772d3ea1158f63259e18b05e790fbd29900f90e27"},
-    {file = "shiboken6-6.1.1-6.1.1-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:71511be33bf87480cbabc9d1e08e0e2274546ee9d54b6e796e5d530a09845430"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:d95286a6d59f29f5cad18c4346166f94bfedff9a61056d9b30d641e7a6ee0b28"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:dab04edbde131d09a885fc2c945d9ea3f8e90e6d73546e66de5c2265c4731cf9"},
+    {file = "PySide6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:2dda3467d56ec76031b36ce2571e931cf5f3b6682497edc8a004e0360436da5d"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:acdbf0f085d8d07125ca5acc2ee6b1c56c97c91bd924ebfbcee7ac7d166e7bbe"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:745428c03831f5d60c3ad08b2cbcf25342aef5abfba9d7e79b3a25b38d4bff31"},
+    {file = "shiboken6-6.1.2-6.1.2-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:6b60c5f7ca1a272526c49a9e5f4cc9a4f5657e89c2c36eaa81f24b4c027847d9"},
 ]
 shiboken6-generator = [
-    {file = "shiboken6_generator-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:1afe211ce81cad4d4cb9f6e72c34c7f570d85c6f737409aefb1900dd26ca10e1"},
-    {file = "shiboken6_generator-6.1.1-6.1.1-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:2ff3e7a81f7334a4ba45d0ed8ac69af992ee0338d0e8875f665358577ee352f1"},
-    {file = "shiboken6_generator-6.1.1-6.1.1-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:db1322c22680eb3a6b2218048c0d58b54b7b17ff763f72eeb0b3d890b2154d39"},
+    {file = "shiboken6_generator-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-macosx_10_14_x86_64.whl", hash = "sha256:e8cf068e21aad66571f67e58129655d296796ee9107f172c3b4958a8efefcdbe"},
+    {file = "shiboken6_generator-6.1.2-6.1.2-cp36.cp37.cp38.cp39-abi3-manylinux1_x86_64.whl", hash = "sha256:0fc0a39e82522a2cc71ce11dc1d324deb7100e86aaf387c021c04457d8394531"},
+    {file = "shiboken6_generator-6.1.2-6.1.2-cp36.cp37.cp38.cp39-none-win_amd64.whl", hash = "sha256:43bae2454784ca58058f8311903791c01adaec48349d4e1aa23c8aafdff24f52"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
