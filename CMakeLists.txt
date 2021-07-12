@@ -654,12 +654,6 @@ add_custom_command(OUTPUT ${generated_sources}
                     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
                     COMMENT "Running generator for ${typesystem_file}.")
 
-add_custom_command(OUTPUT ${CMAKE_BINARY_DIRECTORY}/${bindings_library}/pyquotient_python.h ${CMAKE_BINARY_DIRECTORY}/${bindings_library}/pyquotient_module_wrapper.cpp
-                   COMMAND poetry run python3 tools/fix_generated_sources.py
-                   DEPENDS ${generated_sources}
-                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                   COMMENT "Fix errors in shiboken generated code")
-
 
 # =============================== CMake target - bindings_library =============================
 
