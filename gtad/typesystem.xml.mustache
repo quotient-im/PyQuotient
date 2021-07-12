@@ -6,14 +6,13 @@
 
   <namespace-type name="Quotient">
     {{#operations.operation}}
-    <object-type name="{{camelCaseOperationId}}Job">
-      {{#models}}
+    <object-type name="{{camelCaseOperationId}}Job"{{^models}} />{{/models}}{{#models}}>
       <!-- Inner data structures -->
         {{#model}}
       <value-type name="{{name}}" />
         {{/model}}
-      {{/models}}
     </object-type>
+      {{/models}}
     {{/operations.operation}}
   </namespace-type>
 </typesystem>

@@ -6,10 +6,8 @@
   <namespace-type name="Quotient">
     <object-type name="GetLoginFlowsJob">
       <!-- Inner data structures -->
-      <object-type name="LoginFlow" />
+      <value-type name="LoginFlow" />
     </object-type>
-    <object-type name="LoginJob">
-      
-    </object-type>
+    <object-type name="LoginJob" />
   </namespace-type>
 </typesystem>

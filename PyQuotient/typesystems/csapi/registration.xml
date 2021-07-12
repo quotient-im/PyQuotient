@@ -4,29 +4,13 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="RegisterJob">
-      
-    </object-type>
-    <object-type name="RequestTokenToRegisterEmailJob">
-      
-    </object-type>
-    <object-type name="RequestTokenToRegisterMSISDNJob">
-      
-    </object-type>
-    <object-type name="ChangePasswordJob">
-      
-    </object-type>
-    <object-type name="RequestTokenToResetPasswordEmailJob">
-      
-    </object-type>
-    <object-type name="RequestTokenToResetPasswordMSISDNJob">
-      
-    </object-type>
-    <object-type name="DeactivateAccountJob">
-      
-    </object-type>
-    <object-type name="CheckUsernameAvailabilityJob">
-      
-    </object-type>
+    <object-type name="RegisterJob" />
+    <object-type name="RequestTokenToRegisterEmailJob" />
+    <object-type name="RequestTokenToRegisterMSISDNJob" />
+    <object-type name="ChangePasswordJob" />
+    <object-type name="RequestTokenToResetPasswordEmailJob" />
+    <object-type name="RequestTokenToResetPasswordMSISDNJob" />
+    <object-type name="DeactivateAccountJob" />
+    <object-type name="CheckUsernameAvailabilityJob" />
   </namespace-type>
 </typesystem>

@@ -12,11 +12,7 @@
       <value-type name="RoomEventsCriteria" />
       <value-type name="Categories" />
       <value-type name="UserProfile" />
-      
-      
       <value-type name="GroupValue" />
-      
-      
     </object-type>
   </namespace-type>
 </typesystem>

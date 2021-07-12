@@ -5,11 +5,6 @@
 
   <namespace-type name="Quotient">
     <object-type name="GetAccount3PIDsJob">
-      <extra-includes>
-        <!-- provide Omittable C++ class -->
-        <include file-name="util.h" location="global"/>
-      </extra-includes>
-
       <!-- Inner data structures -->
       <value-type name="ThirdPartyIdentifier" />
     </object-type>
@@ -17,23 +12,11 @@
       <!-- Inner data structures -->
       <value-type name="ThreePidCredentials" />
     </object-type>
-    <object-type name="Add3PIDJob">
-      
-    </object-type>
-    <object-type name="Bind3PIDJob">
-      
-    </object-type>
-    <object-type name="Delete3pidFromAccountJob">
-      
-    </object-type>
-    <object-type name="Unbind3pidFromAccountJob">
-      
-    </object-type>
-    <object-type name="RequestTokenTo3PIDEmailJob">
-      
-    </object-type>
-    <object-type name="RequestTokenTo3PIDMSISDNJob">
-      
-    </object-type>
+    <object-type name="Add3PIDJob" />
+    <object-type name="Bind3PIDJob" />
+    <object-type name="Delete3pidFromAccountJob" />
+    <object-type name="Unbind3pidFromAccountJob" />
+    <object-type name="RequestTokenTo3PIDEmailJob" />
+    <object-type name="RequestTokenTo3PIDMSISDNJob" />
   </namespace-type>
 </typesystem>

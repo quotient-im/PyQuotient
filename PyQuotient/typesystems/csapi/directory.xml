@@ -4,17 +4,9 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="SetRoomAliasJob">
-      
-    </object-type>
-    <object-type name="GetRoomIdByAliasJob">
-      
-    </object-type>
-    <object-type name="DeleteRoomAliasJob">
-      
-    </object-type>
-    <object-type name="GetLocalAliasesJob">
-      
-    </object-type>
+    <object-type name="SetRoomAliasJob" />
+    <object-type name="GetRoomIdByAliasJob" />
+    <object-type name="DeleteRoomAliasJob" />
+    <object-type name="GetLocalAliasesJob" />
   </namespace-type>
 </typesystem>

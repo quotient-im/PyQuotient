@@ -4,20 +4,10 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetDevicesJob">
-      
-    </object-type>
-    <object-type name="GetDeviceJob">
-      
-    </object-type>
-    <object-type name="UpdateDeviceJob">
-      
-    </object-type>
-    <object-type name="DeleteDeviceJob">
-      
-    </object-type>
-    <object-type name="DeleteDevicesJob">
-      
-    </object-type>
+    <object-type name="GetDevicesJob" />
+    <object-type name="GetDeviceJob" />
+    <object-type name="UpdateDeviceJob" />
+    <object-type name="DeleteDeviceJob" />
+    <object-type name="DeleteDevicesJob" />
   </namespace-type>
 </typesystem>

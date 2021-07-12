@@ -4,8 +4,6 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="InviteBy3PIDJob">
-      
-    </object-type>
+    <object-type name="InviteBy3PIDJob" />
   </namespace-type>
 </typesystem>

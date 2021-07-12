@@ -4,8 +4,6 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetTokenOwnerJob">
-      
-    </object-type>
+    <object-type name="GetTokenOwnerJob" />
   </namespace-type>
 </typesystem>

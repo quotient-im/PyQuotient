@@ -4,15 +4,9 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetRoomVisibilityOnDirectoryJob">
-      
-    </object-type>
-    <object-type name="SetRoomVisibilityOnDirectoryJob">
-      
-    </object-type>
-    <object-type name="GetPublicRoomsJob">
-      
-    </object-type>
+    <object-type name="GetRoomVisibilityOnDirectoryJob" />
+    <object-type name="SetRoomVisibilityOnDirectoryJob" />
+    <object-type name="GetPublicRoomsJob" />
     <object-type name="QueryPublicRoomsJob">
       <!-- Inner data structures -->
       <value-type name="Filter" />

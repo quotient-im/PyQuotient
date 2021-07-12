@@ -4,23 +4,11 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="GetProtocolsJob">
-      
-    </object-type>
-    <object-type name="GetProtocolMetadataJob">
-      
-    </object-type>
-    <object-type name="QueryLocationByProtocolJob">
-      
-    </object-type>
-    <object-type name="QueryUserByProtocolJob">
-      
-    </object-type>
-    <object-type name="QueryLocationByAliasJob">
-      
-    </object-type>
-    <object-type name="QueryUserByIDJob">
-      
-    </object-type>
+    <object-type name="GetProtocolsJob" />
+    <object-type name="GetProtocolMetadataJob" />
+    <object-type name="QueryLocationByProtocolJob" />
+    <object-type name="QueryUserByProtocolJob" />
+    <object-type name="QueryLocationByAliasJob" />
+    <object-type name="QueryUserByIDJob" />
   </namespace-type>
 </typesystem>

@@ -8,11 +8,7 @@
       <!-- Inner data structures -->
       <value-type name="Tag" />
     </object-type>
-    <object-type name="SetRoomTagJob">
-      
-    </object-type>
-    <object-type name="DeleteRoomTagJob">
-      
-    </object-type>
+    <object-type name="SetRoomTagJob" />
+    <object-type name="DeleteRoomTagJob" />
   </namespace-type>
 </typesystem>

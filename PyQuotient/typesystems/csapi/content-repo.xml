@@ -4,23 +4,11 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="UploadContentJob">
-      
-    </object-type>
-    <object-type name="GetContentJob">
-      
-    </object-type>
-    <object-type name="GetContentOverrideNameJob">
-      
-    </object-type>
-    <object-type name="GetContentThumbnailJob">
-      
-    </object-type>
-    <object-type name="GetUrlPreviewJob">
-      
-    </object-type>
-    <object-type name="GetConfigJob">
-      
-    </object-type>
+    <object-type name="UploadContentJob" />
+    <object-type name="GetContentJob" />
+    <object-type name="GetContentOverrideNameJob" />
+    <object-type name="GetContentThumbnailJob" />
+    <object-type name="GetUrlPreviewJob" />
+    <object-type name="GetConfigJob" />
   </namespace-type>
 </typesystem>

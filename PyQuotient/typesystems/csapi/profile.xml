@@ -4,20 +4,10 @@
   <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="SetDisplayNameJob">
-      
-    </object-type>
-    <object-type name="GetDisplayNameJob">
-      
-    </object-type>
-    <object-type name="SetAvatarUrlJob">
-      
-    </object-type>
-    <object-type name="GetAvatarUrlJob">
-      
-    </object-type>
-    <object-type name="GetUserProfileJob">
-      
-    </object-type>
+    <object-type name="SetDisplayNameJob" />
+    <object-type name="GetDisplayNameJob" />
+    <object-type name="SetAvatarUrlJob" />
+    <object-type name="GetAvatarUrlJob" />
+    <object-type name="GetUserProfileJob" />
   </namespace-type>
 </typesystem>
