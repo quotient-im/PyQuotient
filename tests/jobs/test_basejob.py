@@ -217,5 +217,5 @@ class TestBaseJob:
         assert len(slot_stub.call_args[0]) == 1
         assert isinstance(slot_stub.call_args[0][0], Quotient.BaseJob)
 
-    def test_(self, base_job):
-        base_job.result.connect(void_slot)
+    def test_job_is_pending(self, base_job):
+        assert Quotient.is_job_pending(base_job) == False
