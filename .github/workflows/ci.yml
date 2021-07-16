@@ -67,6 +67,7 @@ jobs:
         pushd poetry
         python${{ matrix.python-version }} install-poetry.py --version 1.2.0a1
         popd
+        rm -r poetry
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
         if [ "${{ runner.os }}" == "macOS" ]; then
