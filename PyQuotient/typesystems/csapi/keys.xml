@@ -1,0 +1,16 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="UploadKeysJob" />
+    <object-type name="QueryKeysJob">
+      <!-- Inner data structures -->
+      <value-type name="UnsignedDeviceInfo" />
+      <value-type name="DeviceInformation" />
+    </object-type>
+    <object-type name="ClaimKeysJob" />
+    <object-type name="GetKeysChangesJob" />
+  </namespace-type>
+</typesystem>

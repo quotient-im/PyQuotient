@@ -1,0 +1,14 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="GetProtocolsJob" />
+    <object-type name="GetProtocolMetadataJob" />
+    <object-type name="QueryLocationByProtocolJob" />
+    <object-type name="QueryUserByProtocolJob" />
+    <object-type name="QueryLocationByAliasJob" />
+    <object-type name="QueryUserByIDJob" />
+  </namespace-type>
+</typesystem>

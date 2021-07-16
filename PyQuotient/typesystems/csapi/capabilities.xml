@@ -1,0 +1,14 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="GetCapabilitiesJob">
+      <!-- Inner data structures -->
+      <value-type name="ChangePasswordCapability" />
+      <value-type name="RoomVersionsCapability" />
+      <value-type name="Capabilities" />
+    </object-type>
+  </namespace-type>
+</typesystem>

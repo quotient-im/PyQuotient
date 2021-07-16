@@ -1,0 +1,14 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="GetRoomTagsJob">
+      <!-- Inner data structures -->
+      <value-type name="Tag" />
+    </object-type>
+    <object-type name="SetRoomTagJob" />
+    <object-type name="DeleteRoomTagJob" />
+  </namespace-type>
+</typesystem>

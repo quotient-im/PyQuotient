@@ -1,0 +1,14 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  <load-typesystem name="typesystem_network.xml" generate="no" />
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="UploadContentJob" />
+    <object-type name="GetContentJob" />
+    <object-type name="GetContentOverrideNameJob" />
+    <object-type name="GetContentThumbnailJob" />
+    <object-type name="GetUrlPreviewJob" />
+    <object-type name="GetConfigJob" />
+  </namespace-type>
+</typesystem>

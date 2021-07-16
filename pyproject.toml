@@ -5,15 +5,20 @@ description = ""
 authors = ["Vladyslav Hnatiuk <vhnatiuk@ukr.net>"]
 license = "LGPL-2.1"
 readme = "README.md"
+packages = [
+    { include = "demo" }
+]
 
 [tool.poetry.dependencies]
 python = ">= 3.8, < 3.10"
-shiboken6 = "^6.1.1"
-PySide6 = "^6.1.1"
-shiboken6-generator = "^6.1.1"
+shiboken6 = "^6.1.2"
+PySide6 = "^6.1.2"
+shiboken6-generator = "^6.1.2"
+lxml = "^4.6.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
+pytest-mock = "^3.6.1"
 
 [[tool.poetry.source]]
 name = "qt"
@@ -22,3 +27,6 @@ url = "http://download.qt.io/official_releases/QtForPython/"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+demo = "demo:start"

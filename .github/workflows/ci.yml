@@ -17,7 +17,8 @@ jobs:
       max-parallel: 1
       matrix:
         os: [ubuntu-20.04, macos-10.15]
-        qt-version: [ '6.1.1' ]
+        qt-version: [ '6.1.2' ]
+        python-version: [ '3.8' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -34,26 +35,26 @@ jobs:
       with:
         version: ${{ matrix.qt-version }}
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
-        aqtversion: ==1.2.0b3 # <1.2.0 has problem with osx installation of Qt 6
+        aqtversion: ==1.2.4 # <1.2.0 has problem with osx installation of Qt 6
     
     - name: Cache Python dependencies
       if: ${{ runner.os == 'Linux' }}
       uses: actions/cache@v2
       with:
         path: /home/runner/.cache/pypoetry/
-        key: ${{ hashFiles('**/poetry.lock') }}
+        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Cache Python dependencies
       if: ${{ runner.os == 'macOS' }}
       uses: actions/cache@v2
       with:
         path: /Users/runner/Library/Caches/pypoetry/
-        key: ${{ hashFiles('**/poetry.lock') }}
+        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-    - name: Set up Python 3.9
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: ${{ matrix.python-version }}
     
     - name: Install dependencies
       run: |
@@ -61,9 +62,12 @@ jobs:
           sudo apt-get install llvm
         fi
 
-        python -m pip install --upgrade pip
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py > poetry.py
-        python3 poetry.py --version 1.2.0a1
+        python${{ matrix.python-version }} -m pip install --upgrade pip
+        git clone --depth 1 --single-branch --branch 1.2.0a1 https://github.com/python-poetry/poetry.git
+        pushd poetry
+        python${{ matrix.python-version }} install-poetry.py --version 1.2.0a1
+        popd
+        rm -r poetry
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
         if [ "${{ runner.os }}" == "macOS" ]; then
@@ -75,7 +79,7 @@ jobs:
           ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtGui/
           ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtNetwork/
         fi
-
+        poetry env use ${{ matrix.python-version }}
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         # git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
@@ -83,12 +87,14 @@ jobs:
     
     - name: Build
       run: |
+        poetry env use ${{ matrix.python-version }}
         mkdir -p build
         pushd build
-        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
+        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=${{ matrix.python-version }} ../
         make
         popd
     
     - name: Run unit tests
       run: |
+        poetry env use ${{ matrix.python-version }}
         poetry run python3 -m pytest

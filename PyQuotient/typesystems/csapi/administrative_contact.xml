@@ -1,0 +1,22 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="GetAccount3PIDsJob">
+      <!-- Inner data structures -->
+      <value-type name="ThirdPartyIdentifier" />
+    </object-type>
+    <object-type name="Post3PIDsJob">
+      <!-- Inner data structures -->
+      <value-type name="ThreePidCredentials" />
+    </object-type>
+    <object-type name="Add3PIDJob" />
+    <object-type name="Bind3PIDJob" />
+    <object-type name="Delete3pidFromAccountJob" />
+    <object-type name="Unbind3pidFromAccountJob" />
+    <object-type name="RequestTokenTo3PIDEmailJob" />
+    <object-type name="RequestTokenTo3PIDMSISDNJob" />
+  </namespace-type>
+</typesystem>

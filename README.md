@@ -24,6 +24,8 @@ Optional parameters:
 - QT_PATH
 - PYTHON_ENV_VERSION
 - USE_POETRY
+- GTAD_PATH
+- MATRIX_DOC_PATH
 
 **Note:**: deprecated API(properties, methods, etc) is not tested!
 

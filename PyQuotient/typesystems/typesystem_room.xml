@@ -1,0 +1,18 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="FileTransferInfo">
+        <property name="isUpload" type="bool"  get="isUpload" />
+        <property name="progress" type="int"  get="progress" />
+        <property name="total" type="int"  get="total" />
+        <property name="localDir" type="QUrl"  get="localDir" />
+        <property name="localPath" type="QUrl"  get="localPath" />
+
+        <enum-type name="Status"/>
+    </object-type>
+
+    <object-type name="Room">
+    </object-type>
+  </namespace-type>
+</typesystem>

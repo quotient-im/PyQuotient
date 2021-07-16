@@ -1,0 +1,7 @@
+<typesystem package="PyQuotient">
+    <load-typesystem name="typesystem_core.xml" generate="no" />
+
+    <namespace-type name="Quotient">
+        <value-type name="ThirdPartyUser" />
+    </namespace-type>
+</typesystem>

@@ -1,0 +1,13 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="CreateRoomJob">
+      <!-- Inner data structures -->
+      <value-type name="Invite3pid" />
+      <value-type name="StateEvent" />
+    </object-type>
+  </namespace-type>
+</typesystem>

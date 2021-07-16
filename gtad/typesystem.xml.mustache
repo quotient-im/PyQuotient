@@ -1,0 +1,18 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  {{#operations.producesNonJson?}}
+  <load-typesystem name="typesystem_network.xml" generate="no" />{{/operations.producesNonJson?}}
+  <load-typesystem name="../jobs/typesystem_basejob.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    {{#operations.operation}}
+    <object-type name="{{camelCaseOperationId}}Job"{{^models}} />{{/models}}{{#models}}>
+      <!-- Inner data structures -->
+        {{#model}}
+      <value-type name="{{name}}" />
+        {{/model}}
+    </object-type>
+      {{/models}}
+    {{/operations.operation}}
+  </namespace-type>
+</typesystem>
