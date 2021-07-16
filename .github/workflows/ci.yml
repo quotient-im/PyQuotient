@@ -62,10 +62,10 @@ jobs:
           sudo apt-get install llvm
         fi
 
-        python -m pip install --upgrade pip
+        python${{ matrix.python-version }} -m pip install --upgrade pip
         git clone --depth 1 --single-branch --branch 1.2.0a1 https://github.com/python-poetry/poetry.git
         pushd poetry
-        python3 install-poetry.py --version 1.2.0a1
+        python${{ matrix.python-version }} install-poetry.py --version 1.2.0a1
         popd
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
@@ -78,7 +78,7 @@ jobs:
           ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtGui/
           ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtNetwork/
         fi
-
+        poetry env use ${{ matrix.python-version }}
         poetry install --verbose
         poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
         # git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
@@ -86,12 +86,14 @@ jobs:
     
     - name: Build
       run: |
+        poetry env use ${{ matrix.python-version }}
         mkdir -p build
         pushd build
-        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=3.9 ../
+        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=${{ matrix.python-version }} ../
         make
         popd
     
     - name: Run unit tests
       run: |
+        poetry env use ${{ matrix.python-version }}
         poetry run python3 -m pytest
