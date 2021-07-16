@@ -18,6 +18,7 @@ jobs:
       matrix:
         os: [ubuntu-20.04, macos-10.15]
         qt-version: [ '6.1.2' ]
+        python-version: [ '3.8' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -41,7 +42,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /home/runner/.cache/pypoetry/
-        key: ${{ hashFiles('**/poetry.lock') }}
+        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Cache Python dependencies
       if: ${{ runner.os == 'macOS' }}
@@ -50,10 +51,10 @@ jobs:
         path: /Users/runner/Library/Caches/pypoetry/
         key: ${{ hashFiles('**/poetry.lock') }}
 
-    - name: Set up Python 3.9
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: ${{ matrix.python-version }}
     
     - name: Install dependencies
       run: |
