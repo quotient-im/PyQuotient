@@ -49,7 +49,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /Users/runner/Library/Caches/pypoetry/
-        key: ${{ hashFiles('**/poetry.lock') }}
+        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
