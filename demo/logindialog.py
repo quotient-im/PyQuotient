@@ -2,7 +2,6 @@ from PySide6 import QtCore, QtWidgets, QtGui
 from __feature__ import snake_case, true_property
 
 from PyQuotient import Quotient
-from PyQuotient.qt_connection_util import connect_single_shot
 from .dialog import Dialog
 
 
@@ -71,7 +70,7 @@ class LoginDialog(Dialog):
             self.apply_failed('The server URL doesn\'t look valid')
         else:
             self.connection.homeserver = url
-            connect_single_shot(self.connection.loginFlowsChanged, self.on_apply_login_flows_changed)
+            self.connection.loginFlowsChanged.connect(self.on_apply_login_flows_changed, QtCore.Qt.SingleShotConnection)
 
     def on_apply_login_flows_changed(self):
         print('Received login flows, trying to login')
