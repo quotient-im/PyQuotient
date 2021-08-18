@@ -4,23 +4,6 @@
   <load-typesystem name="csapi/login.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <object-type name="Connection">
-    <!-- syncLoop() -->
-    <!-- int timeout = 30000 -->
-      <!-- <property name="localUser" type="User" get="user" />
-      <property name="localUserId" type="QString" get="userId" />
-      <property name="domain" type="QString" get="domain" />
-      <property name="deviceId" type="QString" get="deviceId" />
-      <property name="accessToken" type="QByteArray" get="accessToken" />
-      <property name="isLoggedIn" type="bool" get="isLoggedIn" />
-      <property name="defaultRoomVersion" type="QString" get="defaultRoomVersion" />
-      <property name="homeserver" type="QUrl" get="homeserver" set="setHomeserver" /> -->
-      <!-- <property name="loginFlows" type="QVector&lt;Quotient::GetLoginFlowsJob::LoginFlow&gt;" get="loginFlows" /> -->
-      <!-- <property name="isUsable" type="bool" get="isUsable" />
-      <property name="supportsSso" type="bool" get="supportsSso" />
-      <property name="supportsPasswordAuth" type="bool" get="supportsPasswordAuth" />
-      <property name="cacheState" type="bool" get="cacheState" />
-      <property name="lazyLoading" type="bool" get="lazyLoading" /> -->
-    </object-type>
+    <object-type name="Connection" />
   </namespace-type>
 </typesystem>
