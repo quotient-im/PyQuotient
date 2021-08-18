@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Timeline.qml</file>
+        <file>qml/TimelineItem.qml</file>
+        <file>qml/TimelineMouseArea.qml</file>
+        <file>qml/TimelineTextEditSelector.qml</file>
+        <file>qml/TimelineItemToolButton.qml</file>
+        <file>qml/TimelineSettings.qml</file>
+        <file>qml/NormalNumberAnimation.qml</file>
+        <file>qml/FastNumberAnimation.qml</file>
+        <file>qml/AnimationBehavior.qml</file>
+        <file>qml/AnimatedTransition.qml</file>
+        <file>qml/ToolTipArea.qml</file>
+        <file>qml/MyToolTip.qml</file>
+        <file>qml/ScrollToButton.qml</file>
+        <file>qml/AuthorInteractionArea.qml</file>
+        <file>qml/ImageContent.qml</file>
+        <file>qml/Attachment.qml</file>
+    </qresource>
+</RCC>
