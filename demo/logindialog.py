@@ -1,7 +1,7 @@
 from PySide6 import QtCore, QtWidgets, QtGui
+from PyQuotient import Quotient
 from __feature__ import snake_case, true_property
 
-from PyQuotient import Quotient
 from .dialog import Dialog
 
 
@@ -157,8 +157,9 @@ class LoginDialog(Dialog):
             self.buttons.button(QtWidgets.QDialogButtonBox.Ok).enabled = False
             self.connection.resolve_server(user_id)
 
-    @QtCore.Slot(str)
-    def on_server_edit_editing_finished(self, server: str):
+    @QtCore.Slot()
+    def on_server_edit_editing_finished(self):
+        server = self.server_edit.text
         hs_url = QtCore.QUrl(server)
         if hs_url.is_valid():
             self.connection.homerserver = server
