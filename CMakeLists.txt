@@ -421,6 +421,22 @@ quotient_joinroomjob_wrapper.h
 quotient_querykeysjob_deviceinformation_wrapper.h
 quotient_requesttokento3pidmsisdnjob_wrapper.h
 quotient_upgraderoomjob_wrapper.h
+quotient_stateeventbase_wrapper.cpp
+quotient_stateeventbase_wrapper.h
+quotient_event_wrapper.cpp
+quotient_event_wrapper.h
+quotient_roomevent_wrapper.cpp
+quotient_roomevent_wrapper.h
+quotient_roomeventptr_wrapper.cpp
+quotient_roomeventptr_wrapper.h
+quotient_eventstatus_wrapper.cpp
+quotient_eventstatus_wrapper.h
+quotient_eventitembase_wrapper.cpp
+quotient_eventitembase_wrapper.h
+quotient_timelineitem_wrapper.cpp
+quotient_timelineitem_wrapper.h
+quotient_pendingeventitem_wrapper.cpp
+quotient_pendingeventitem_wrapper.h
 )
 # generated wrappers end
 

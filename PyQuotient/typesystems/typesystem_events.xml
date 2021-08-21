@@ -1,0 +1,5 @@
+<typesystem package="PyQuotient">
+    <load-typesystem name="events/typesystem_event.xml" />
+    <load-typesystem name="events/typesystem_roomevent.xml" />
+    <load-typesystem name="events/typesystem_stateevent.xml" />
+</typesystem>

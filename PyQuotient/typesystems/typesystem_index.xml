@@ -1,4 +1,9 @@
 <typesystem package="PyQuotient">
+  <!-- from header-only modules -->
+  <namespace-type name="Quotient">
+    <enum-type name="JoinState"/>
+  </namespace-type>
+
   <load-typesystem name="jobs/typesystem_basejob.xml" />
   <load-typesystem name="typesystem_csapi.xml" />
   <load-typesystem name="jobs/typesystem_requestdata.xml" />
@@ -10,4 +15,7 @@
   <load-typesystem name="typesystem_room.xml" />
   <load-typesystem name="typesystem_settings.xml" />
   <load-typesystem name="typesystem_user.xml" />
+
+  <load-typesystem name="typesystem_events.xml" />
+  <load-typesystem name="typesystem_eventitem.xml" />
 </typesystem>

@@ -1,0 +1,10 @@
+<typesystem package="PyQuotient">
+  <load-typesystem name="typesystem_core.xml" generate="no" />
+  <load-typesystem name="./typesystem_event.xml" generate="no" />
+
+  <namespace-type name="Quotient">
+    <object-type name="RoomEvent" />
+
+    <object-type name="RoomEventPtr" copyable="no" disable-wrapper="yes" />
+  </namespace-type>
+</typesystem>
