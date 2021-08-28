@@ -171,7 +171,7 @@ class OrderByTag(AbstractRoomOrdering):
                 result.append(tag) # Only copy tags that are not disabled
         return result
 
-    def room_less_then(self, group_key: str, room1: Quotient.Room, room2: Quotient.Room):
+    def room_less_than(self, group_key: str, room1: Quotient.Room, room2: Quotient.Room):
         if room1 == room2:
             return False # 0. Short-circuit for coinciding room objects
 
@@ -206,7 +206,7 @@ class OrderByTag(AbstractRoomOrdering):
             if connection1.user_id != connection2.user_id:
                 return connection1.user_id < connection2.user_id
             
-            # 3a. Two logins under the same userid: pervert, but technically correct
+            # 4a. Two logins under the same userid: pervert, but technically correct
             return connection1.access_token < connection2.access_token
         
         # 5. Assume two incarnations of the room with the different join state
