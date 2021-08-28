@@ -433,8 +433,6 @@ quotient_roomevent_wrapper.cpp
 quotient_roomevent_wrapper.h
 quotient_roomeventptr_wrapper.cpp
 quotient_roomeventptr_wrapper.h
-quotient_eventstatus_wrapper.cpp
-quotient_eventstatus_wrapper.h
 quotient_eventitembase_wrapper.cpp
 quotient_eventitembase_wrapper.h
 quotient_timelineitem_wrapper.cpp

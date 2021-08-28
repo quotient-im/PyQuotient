@@ -126,7 +126,7 @@ class RoomListModel(QtCore.QAbstractItemModel):
 
     @QtCore.Slot(Quotient.Room)
     def delete_room(self, room: Quotient.Room) -> None:
-        self.visit_room(room, lambda index: self.do_remove_room(index))
+        self.visit_room(room, self.do_remove_room)
     
     def do_remove_room(self, index: QtCore.QModelIndex) -> None:
         if not self.is_valid_room_index(index):
@@ -189,9 +189,6 @@ class RoomListModel(QtCore.QAbstractItemModel):
         return functools.reduce(lambda c1, c2: len(c1.all_rooms()) + len(c2.all_rooms()), self.connections)
 
     def set_order(self, order: AbstractRoomOrdering) -> None:
-        self.do_set_order(order)
-    
-    def do_set_order(self, order: AbstractRoomOrdering) -> None:
         self.begin_reset_model()
         self.room_groups.clear()
         self.room_indices.clear()
