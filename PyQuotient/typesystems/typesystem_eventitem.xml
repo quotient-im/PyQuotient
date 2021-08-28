@@ -3,9 +3,9 @@
   <load-typesystem name="events/typesystem_roomevent.xml" generate="no" />
 
   <namespace-type name="Quotient">
-    <value-type name="EventStatus">
+    <namespace-type name="EventStatus">
         <enum-type name="Code"/>
-    </value-type>
+    </namespace-type>
 
     <object-type name="EventItemBase">
       <modify-function signature="EventItemBase(Quotient::RoomEventPtr&amp;&amp;)" remove="true" />

@@ -1,24 +1,72 @@
 import math
 
 from PySide6 import QtCore, QtWidgets, QtGui
-from __feature__ import snake_case, true_property
-
 from PyQuotient import Quotient
+from demo.accountregistry import AccountRegistry
 from demo.logindialog import LoginDialog
+from demo.roomlistdock import RoomListDock
+from demo.pyquaternionroom import PyquaternionRoom
+from __feature__ import snake_case, true_property
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.text_label = QtWidgets.QLabel("Welcome to PyQuotient demo!")
         self.login_dialog = None
         self.connection_menu = None
         self.logout_menu = None
+        # FIXME: This will be a problem when we get ability to show
+        # several rooms at once.
+        self.current_room = None
 
-        self.set_central_widget(self.text_label)
+        self.account_registry = AccountRegistry()
+        self.room_list_dock = RoomListDock(self)
+        self.room_list_dock.roomSelected.connect(self.select_room)
+        self.add_dock_widget(QtCore.Qt.LeftDockWidgetArea, self.room_list_dock)
 
         self.create_menu()
+        # Only GUI, account settings will be loaded in invoke_login
+        self.load_settings()
+
+        timer = QtCore.QTimer(self)
+        timer.single_shot = True
+        timer.timeout.connect(self.invoke_login)
+        timer.start(0)
+    
+    def __del__(self):
+        self.save_settings()
+    
+    def load_settings(self):
+        sg = Quotient.SettingsGroup("UI/MainWindow")
+        # TODO: fix rect value, is None
+        # if sg.contains("normal_geometry"):
+        #     self.geometry = sg.value("normal_geometry")
+        if sg.value("maximized"):
+
+            self.show_maximized()
+        # TODO: fix value, is None
+        # if sg.contains("window_parts_state"):
+        #     self.restore_state(sg.value("window_parts_state"))
+    
+    def save_settings(self):
+        sg = Quotient.SettingsGroup("UI/MainWindow")
+        sg.set_value("normal_geometry", self.normal_geometry)
+        sg.set_value("maximized", self.maximized)
+        sg.set_value("window_parts_state", self.save_state())
+        sg.sync()
+
+    @QtCore.Slot()
+    def invoke_login(self):
+        accounts = Quotient.SettingsGroup("Accounts").child_groups()
+        auto_logged_in = False
+        for account_id in accounts:
+            account = Quotient.AccountSettings()
+            if account.homeserver:
+                access_token = self.load_access_token(account)
+    
+    def load_access_token(self, account: Quotient.AccountSettings):
+        ...
 
     @QtCore.Slot()
     def open_login_window(self):
@@ -44,6 +92,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def add_connection(self, connection: Quotient.Connection, device_name: str):
         connection.lazy_loading = True
+        self.account_registry.add(connection)
+        self.room_list_dock.add_connection(connection)
         connection.syncLoop(30000)
 
         logout_action = self.logout_menu.add_action(connection.local_user_id, lambda: self.logout(connection))
@@ -148,6 +198,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def on_logged_out(self, connection: Quotient.Connection):
         self.status_bar().show_message(f'Logged out as {connection.local_user_id}', 3000)
+        self.account_registry.drop(connection)
         self.drop_connection(connection)
 
     def create_menu(self):
@@ -167,3 +218,30 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_bar().show_message('Couldn\'t connect to the server as {user}; will retry within {seconds} seconds'.format(
             user=connection.local_user_id, seconds=math.ceil(connection.millis_to_reconnect)
         ))
+    
+    @QtCore.Slot(PyquaternionRoom)
+    def select_room(self, room: PyquaternionRoom) -> None:
+        if room is not None:
+            print(f'Opening room {room.object_name()}')
+        elif self.current_room is not None:
+            print(f'Closing room {self.current_room.object_name()}')
+        
+        if self.current_room is not None:
+            self.current_room.displaynameChanged.disconnect(self.current_room_displayname_changed)
+        
+        self.current_room = room
+        new_window_title = ''
+        if self.current_room:
+            new_window_title = self.current_room.display_name()
+            self.current_room.displaynameChanged.connect(self.current_room_displayname_changed)
+        
+        self.window_title = new_window_title
+        self.room_list_dock.set_selected_room(self.current_room)
+
+        if room is not None and not self.is_active_window():
+            self.show()
+            self.activate_window()
+    
+    @QtCore.Slot()
+    def current_room_displayname_changed(self):
+        self.window_title = self.current_room.displayName()
