@@ -126,7 +126,7 @@ class RoomListModel(QtCore.QAbstractItemModel):
 
     @QtCore.Slot(Quotient.Room)
     def delete_room(self, room: Quotient.Room) -> None:
-        self.visit_room(room, lambda index: self.do_remove_room(index))
+        self.visit_room(room, self.do_remove_room)
     
     def do_remove_room(self, index: QtCore.QModelIndex) -> None:
         if not self.is_valid_room_index(index):
