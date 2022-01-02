@@ -4,6 +4,9 @@
     <enum-type name="JoinState"/>
   </namespace-type>
 
+  <rejection class="Quotient" function-name="fromJson" />
+  <rejection class="Quotient" function-name="doLoadEvent" />
+
   <load-typesystem name="jobs/typesystem_basejob.xml" />
   <load-typesystem name="typesystem_csapi.xml" />
   <load-typesystem name="jobs/typesystem_requestdata.xml" />

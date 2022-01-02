@@ -1,7 +1,6 @@
 from demo.models.abstractroomordering import RoomGroup
 from PySide6 import QtCore, QtWidgets, QtGui
 from PyQuotient import Quotient
-from demo.pyquaternionroom import PyquaternionRoom
 from demo.models.roomlistmodel import RoomListModel, Roles
 from demo.models.orderbytag import OrderByTag
 from __feature__ import snake_case, true_property
@@ -34,7 +33,7 @@ class RoomListItemDelegate(QtWidgets.QStyledItemDelegate):
         super().paint(painter, new_option, index)
 
 class RoomListDock(QtWidgets.QDockWidget):
-    roomSelected = QtCore.Signal(PyquaternionRoom)
+    roomSelected = QtCore.Signal(Quotient.Room)
 
     def __init__(self, parent=None) -> None:
         super().__init__("Rooms", parent)
@@ -66,7 +65,7 @@ class RoomListDock(QtWidgets.QDockWidget):
         self.model.add_connection(connection)
 
     @QtCore.Slot()
-    def set_selected_room(self, room: PyquaternionRoom):
+    def set_selected_room(self, room: Quotient.Room):
         if self.get_selected_room() == room:
             return
         

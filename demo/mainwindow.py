@@ -1,11 +1,12 @@
 import math
 
+import demo.resources
 from PySide6 import QtCore, QtWidgets, QtGui
 from PyQuotient import Quotient
 from demo.accountregistry import AccountRegistry
+from demo.chatroomwidget import ChatRoomWidget
 from demo.logindialog import LoginDialog
 from demo.roomlistdock import RoomListDock
-from demo.pyquaternionroom import PyquaternionRoom
 from __feature__ import snake_case, true_property
 
 
@@ -24,6 +25,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.room_list_dock = RoomListDock(self)
         self.room_list_dock.roomSelected.connect(self.select_room)
         self.add_dock_widget(QtCore.Qt.LeftDockWidgetArea, self.room_list_dock)
+
+        self.chat_room_widget = ChatRoomWidget(self)
+        self.chat_room_widget.showStatusMessage.connect(lambda x = '': self.status_bar().show_message(x))
+        self.set_central_widget(self.chat_room_widget)
 
         self.create_menu()
         # Only GUI, account settings will be loaded in invoke_login
@@ -219,8 +224,8 @@ class MainWindow(QtWidgets.QMainWindow):
             user=connection.local_user_id, seconds=math.ceil(connection.millis_to_reconnect)
         ))
     
-    @QtCore.Slot(PyquaternionRoom)
-    def select_room(self, room: PyquaternionRoom) -> None:
+    @QtCore.Slot(Quotient.Room)
+    def select_room(self, room: Quotient.Room) -> None:
         if room is not None:
             print(f'Opening room {room.object_name()}')
         elif self.current_room is not None:
