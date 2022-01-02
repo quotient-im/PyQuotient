@@ -17,84 +17,84 @@ jobs:
       max-parallel: 1
       matrix:
         os: [ubuntu-20.04, macos-10.15]
-        qt-version: [ '6.1.2' ]
-        python-version: [ '3.8' ]
+        qt-version: ["6.2.2"]
+        python-version: ["3.8"]
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Cache Qt
-      id: cache-qt
-      uses: actions/cache@v2
-      with:
-        path: ${{ runner.workspace }}/Qt
-        key: ${{ runner.os }}-Qt${{ matrix.qt-version }}-cache
+      - uses: actions/checkout@v2
 
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2.11.1
-      with:
-        version: ${{ matrix.qt-version }}
-        cached: ${{ steps.cache-qt.outputs.cache-hit }}
-        aqtversion: ==1.2.4 # <1.2.0 has problem with osx installation of Qt 6
-    
-    - name: Cache Python dependencies
-      if: ${{ runner.os == 'Linux' }}
-      uses: actions/cache@v2
-      with:
-        path: /home/runner/.cache/pypoetry/
-        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v2
+        with:
+          path: ${{ runner.workspace }}/Qt
+          key: ${{ runner.os }}-Qt${{ matrix.qt-version }}-cache
 
-    - name: Cache Python dependencies
-      if: ${{ runner.os == 'macOS' }}
-      uses: actions/cache@v2
-      with:
-        path: /Users/runner/Library/Caches/pypoetry/
-        key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2.11.1
+        with:
+          version: ${{ matrix.qt-version }}
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          aqtversion: ==1.2.4 # <1.2.0 has problem with osx installation of Qt 6
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    
-    - name: Install dependencies
-      run: |
-        if [ "${{ matrix.os }}" == "ubuntu-20.04" ]; then
-          sudo apt-get install llvm
-        fi
+      - name: Cache Python dependencies
+        if: ${{ runner.os == 'Linux' }}
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.cache/pypoetry/
+          key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-        python${{ matrix.python-version }} -m pip install --upgrade pip
-        git clone --depth 1 --single-branch --branch 1.2.0a2 https://github.com/python-poetry/poetry.git
-        pushd poetry
-        python${{ matrix.python-version }} install-poetry.py --version 1.2.0a2
-        popd
-        rm -r poetry
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Cache Python dependencies
+        if: ${{ runner.os == 'macOS' }}
+        uses: actions/cache@v2
+        with:
+          path: /Users/runner/Library/Caches/pypoetry/
+          key: ${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-        if [ "${{ runner.os }}" == "macOS" ]; then
-          # is needed for macos to make poetry available
-          export PATH="/Users/runner/.local/bin:$PATH"
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
 
-          # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
-          ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtCore/
-          ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtGui/
-          ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtNetwork/
-        fi
-        poetry env use ${{ matrix.python-version }}
-        poetry install --verbose
-        poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
-        # git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
-        git clone https://github.com/Aksem/libQuotient.git -b qt-6.1 PyQuotient/libQuotient
-    
-    - name: Build
-      run: |
-        poetry env use ${{ matrix.python-version }}
-        mkdir -p build
-        pushd build
-        cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=${{ matrix.python-version }} ../
-        make
-        popd
-    
-    - name: Run unit tests
-      run: |
-        poetry env use ${{ matrix.python-version }}
-        poetry run python3 -m pytest
+      - name: Install dependencies
+        run: |
+          if [ "${{ matrix.os }}" == "ubuntu-20.04" ]; then
+            sudo apt-get install llvm
+          fi
+
+          python${{ matrix.python-version }} -m pip install --upgrade pip
+          git clone --depth 1 --single-branch --branch 1.2.0a2 https://github.com/python-poetry/poetry.git
+          pushd poetry
+          python${{ matrix.python-version }} install-poetry.py --version 1.2.0a2
+          popd
+          rm -r poetry
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+          if [ "${{ runner.os }}" == "macOS" ]; then
+            # is needed for macos to make poetry available
+            export PATH="/Users/runner/.local/bin:$PATH"
+
+            # qt on macos is installed in framework mode, includes like 'QtCore/QUrl' cannot be resolved by default
+            ln -sf $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtCore.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtCore/
+            ln -sf $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtGui.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtGui/
+            ln -sf $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/* $Qt6_DIR/lib/QtNetwork.framework/Versions/A/Headers/${{ matrix.qt-version }}/QtNetwork/
+          fi
+          poetry env use ${{ matrix.python-version }}
+          poetry install --verbose
+          poetry run pip3 install PySide6 # temporary workaround, poetry can't install PySide6. TODO: investigate
+          # git clone https://github.com/quotient-im/libQuotient.git PyQuotient/libQuotient
+        git clone https://github.com/Aksem/libQuotient.git -b fix-qt-6 PyQuotient/libQuotient
+
+      - name: Build
+        run: |
+          poetry env use ${{ matrix.python-version }}
+          mkdir -p build
+          pushd build
+          cmake -DBUILD_TESTING=OFF -DBUILD_WITH_QT6=ON -DQT_PATH=$Qt6_DIR -DPYTHON_ENV_VERSION=${{ matrix.python-version }} ../
+          make
+          popd
+
+      - name: Run unit tests
+        run: |
+          poetry env use ${{ matrix.python-version }}
+          poetry run python3 -m pytest

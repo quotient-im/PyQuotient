@@ -4,10 +4,10 @@
   <namespace-type name="Quotient">
     <object-type name="Settings" />
     <object-type name="SettingsGroup">
-      <declare-function signature="SettingsGroup(QString)" />
+      <!-- <declare-function signature="SettingsGroup(QString)" /> -->
     </object-type>
     <object-type name="AccountSettings">
-      <declare-function signature="AccountSettings(QString)" />
+      <!-- <declare-function signature="AccountSettings(QString)" /> -->
     </object-type>
   </namespace-type>
 </typesystem>

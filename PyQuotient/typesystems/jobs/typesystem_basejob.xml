@@ -21,6 +21,10 @@
         <property name="error" type="int" get="error" />
         <property name="errorString" type="QString" get="errorString" />
         <property name="errorUrl" type="QUrl" get="errorUrl" />
+
+        <!-- remove deprecated methods -->
+        <modify-function signature="apiEndpoint()const" remove="true" />
+        <modify-function signature="setApiEndpoint(QString)" remove="true" />
     </object-type>
   </namespace-type>
 </typesystem>

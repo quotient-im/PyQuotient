@@ -28,8 +28,6 @@ class MessageEventModel(QtCore.QAbstractListModel):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        QtQml.qmlRegisterUncreatableType(Quotient.EventStatus, 'Quotient', 1, 0, 'EventStatus', 'EventStatus is not a creatable type')
-
     def row_count(self, parent: QtCore.QModelIndex = QtCore.QModelIndex()):
         # TODO: implement
         return 2

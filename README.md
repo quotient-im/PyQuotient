@@ -6,8 +6,8 @@
 
    `poetry install`
 
-   or use pip with qt repository `http://download.qt.io/official_releases/QtForPython/`(see dependencies and their versions in pyproject.toml) [More](https://doc.qt.io/qtforpython/shiboken6/gettingstarted.html): 
-   
+   or use pip with qt repository `http://download.qt.io/official_releases/QtForPython/`(see dependencies and their versions in pyproject.toml) [More](https://doc.qt.io/qtforpython/shiboken6/gettingstarted.html):
+
    `pip3 install --index-url=http://download.qt.io/official_releases/QtForPython/ --trusted-host download.qt.io shiboken6 PySide6 shiboken6-generator`
 
 2. Clone libQuotient:
@@ -28,7 +28,6 @@ Optional parameters:
 - MATRIX_DOC_PATH
 
 **Note:**: deprecated API(properties, methods, etc) is not tested!
-
 
 ### Usage
 
@@ -52,6 +51,8 @@ If you use pip, install development requirements:
 
 Run tests:
 
-* If you use poetry: `poetry run python -m pytest`
+- If you use poetry: `poetry run python -m pytest`
 
-* otherwise: `python -m pytest`
+- otherwise: `python -m pytest`
+
+Update resources in demo client: `poetry run pyside6-rcc demo/resources.qrc -o demo/resources.py`

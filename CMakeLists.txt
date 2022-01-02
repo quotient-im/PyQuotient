@@ -15,7 +15,7 @@ project(LibQuotientBindings)
 option(USE_POETRY "Use poetry package manager" ON)
 option(USE_PREBUILD_LIBQUOTIENT "Use prebuilt quotient" OFF)
 SET(QT_PATH "" CACHE STRING "Path to qt directory")
-SET(PYTHON_ENV_VERSION "3.9" CACHE STRING "Python env version(e.g. 3.9)")
+SET(PYTHON_ENV_VERSION "3.8" CACHE STRING "Python env version(e.g. 3.8)")
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${QT_PATH}/lib/cmake/Qt6 ${QT_PATH}/lib/cmake/)
 
 # ================================ General configuration ======================================
@@ -439,6 +439,8 @@ quotient_timelineitem_wrapper.cpp
 quotient_timelineitem_wrapper.h
 quotient_pendingeventitem_wrapper.cpp
 quotient_pendingeventitem_wrapper.h
+quotient_eventstatus_wrapper.h
+quotient_eventstatus_wrapper.cpp
 )
 # generated wrappers end
 
@@ -705,9 +707,9 @@ target_link_libraries(${bindings_library} PRIVATE Qt6::Core Qt6::Gui Qt6::Networ
 add_library(pyside STATIC IMPORTED GLOBAL)
 # TODO: change hardcoded name
 if(UNIX AND NOT APPLE)
-    SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.so.6.1)
+    SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.so.6.2)
 else(APPLE)
-    SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.6.1.dylib)
+    SET_TARGET_PROPERTIES(pyside PROPERTIES IMPORTED_LOCATION ${pyside6_path}/libpyside6.abi3.6.2.dylib)
 endif()
 target_link_libraries(${bindings_library} PRIVATE pyside)
 
