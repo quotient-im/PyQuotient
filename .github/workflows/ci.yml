@@ -56,6 +56,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Set up build environment(Linux)
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          # use gcc 10 on linux
+          CXX_VERSION_POSTFIX='-10'
+          echo "CC=gcc$CXX_VERSION_POSTFIX" >>$GITHUB_ENV
+          echo "CXX=g++$CXX_VERSION_POSTFIX" >>$GITHUB_ENV
+
       - name: Install dependencies
         run: |
           if [ "${{ matrix.os }}" == "ubuntu-20.04" ]; then
